@@ -177,7 +177,7 @@
 
 .pw-coordinates__detail {
   margin: 20px 0 0;
-  font-size: 15px;
+  font-size: var(--fs-base);
   line-height: 1.8;
   color: rgba(23, 32, 29, 0.72);
   max-width: 62ch;
@@ -222,7 +222,7 @@
 
 .pw-step__desc {
   margin: 8px 0 0;
-  font-size: 15px;
+  font-size: var(--fs-base);
   line-height: 1.6;
   color: var(--ink-70);
 }
@@ -253,7 +253,7 @@
 
 .pw-inquiry__lede {
   margin: 18px 0 0;
-  font-size: 15.5px;
+  font-size: var(--fs-base);
   line-height: 1.65;
   color: rgba(23, 32, 29, 0.72);
 }
@@ -264,7 +264,7 @@
   border-top: 1px solid rgba(23, 32, 29, 0.2);
   font-size: 13px;
   line-height: 1.6;
-  color: rgba(23, 32, 29, 0.55);
+  color: var(--ink-60);
 }
 
 .pw-inquiry__panel {
@@ -275,6 +275,11 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+/* The [hidden] UA rule loses to display:flex above, so re-assert it */
+.pw-form[hidden] {
+  display: none;
 }
 
 .pw-form__row {
@@ -297,7 +302,7 @@
 
 .pw-field__optional {
   font-weight: 400;
-  color: rgba(23, 32, 29, 0.55);
+  color: var(--ink-60);
 }
 
 .pw-form input[type='text'],
@@ -347,9 +352,9 @@
 }
 
 .pw-consent input[type='checkbox'] {
-  width: 20px;
-  height: 20px;
-  margin: 1px 0 0;
+  width: 24px;
+  height: 24px;
+  margin: 0;
   accent-color: var(--navy);
   flex: none;
 }

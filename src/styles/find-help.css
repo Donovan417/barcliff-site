@@ -43,7 +43,7 @@
   font-size: 14.5px;
   line-height: 1.6;
   color: rgba(23, 32, 29, 0.8);
-  max-width: 640px;
+  max-width: 66ch;
 }
 
 .fh-crisis strong {
@@ -299,6 +299,11 @@
   gap: 18px;
 }
 
+/* The [hidden] UA rule loses to display:flex above, so re-assert it */
+.fh-form[hidden] {
+  display: none;
+}
+
 .fh-field {
   display: flex;
   flex-direction: column;
@@ -310,7 +315,7 @@
 
 .fh-field__optional {
   font-weight: 400;
-  color: rgba(23, 32, 29, 0.55);
+  color: var(--ink-60);
 }
 
 .fh-field-row {
@@ -359,9 +364,9 @@
 }
 
 .fh-check input {
-  width: 20px;
-  height: 20px;
-  margin-top: 1px;
+  width: 24px;
+  height: 24px;
+  margin-top: 0;
   accent-color: var(--navy);
   flex: none;
 }

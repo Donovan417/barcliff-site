@@ -7,11 +7,13 @@
   --ink-75: rgba(23, 32, 29, 0.75);
   --ink-70: rgba(23, 32, 29, 0.7);
   --ink-68: rgba(23, 32, 29, 0.68);
-  --ink-60: rgba(23, 32, 29, 0.6);
+  /* 0.64 is the minimum alpha that keeps this ≥4.5:1 on both cream and white */
+  --ink-60: rgba(23, 32, 29, 0.64);
   --navy: #0f2a4d;
   --navy-deep: #081c36;
   --dark: #071629;
-  --gold: #8f6e20;
+  /* #8a691f is the lightest gold that passes 4.5:1 as small text on cream */
+  --gold: #8a691f;
   --gold-bright: #d2a64a;
   --gold-soft: #dfb863;
   --cream: #f7f3ea;
@@ -20,6 +22,30 @@
   --line-strong: rgba(23, 32, 29, 0.25);
   --font-serif: 'Source Serif 4', Georgia, serif;
   --font-sans: 'Public Sans', Helvetica, Arial, sans-serif;
+
+  /* Type scale — 1.2 ratio anchored at 16px body; smaller sizes are
+     caption/label-only and must pair with --ink-60 or stronger. */
+  --fs-caption: 13px;
+  --fs-small: 14px;
+  --fs-base: 16px;
+  --fs-md: 19px;
+  --fs-lg: 23px;
+  --fs-xl: 28px;
+  --lh-body: 1.6;
+  --lh-heading: 1.15;
+
+  /* Spacing — 4px grid */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --section-pad: clamp(64px, 9vw, 112px);
+  --section-pad-tight: clamp(56px, 8vw, 96px);
 }
 
 * {
@@ -70,6 +96,19 @@ img {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Inline validation message for the message flows; #9c2f22 holds ≥4.5:1
+   on both the white and cream form surfaces. */
+.form-error {
+  margin: 0;
+  padding: 10px 14px;
+  border-left: 3px solid #9c2f22;
+  background: rgba(156, 47, 34, 0.06);
+  color: #9c2f22;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 /* ---------- Utility line ---------- */
@@ -176,6 +215,20 @@ img {
 
 .nav-desktop .btn-cta {
   margin-left: 10px;
+  /* .nav-desktop a outranks .btn-cta, so the button must re-assert its text color */
+  color: #ffffff;
+}
+
+.nav-desktop .btn-cta:hover {
+  color: #ffffff;
+}
+
+/* Current-page state for the header CTA (find-help): keep it distinct from
+   plain nav links without dropping below contrast thresholds on navy. */
+.nav-desktop a.btn-cta[aria-current='page'],
+.nav-mobile-bar a.btn-cta[aria-current='page'] {
+  background: var(--gold-bright);
+  color: var(--dark);
 }
 
 .btn-cta:hover {
@@ -272,6 +325,20 @@ img {
 
   .nav-mobile-bar {
     display: flex;
+  }
+
+  .service-row {
+    grid-template-columns: minmax(34px, 44px) 1fr auto;
+  }
+
+  .card-photo--tall,
+  .card-photo--short {
+    min-height: 240px;
+  }
+
+  .card-solid--tall,
+  .card-solid--short {
+    min-height: 0;
   }
 
   /* Stub pages have no mobile menu — keep their nav mounted and collapse it to the CTA */
@@ -480,7 +547,7 @@ img {
 .mission__inner {
   max-width: 1160px;
   margin: 0 auto;
-  padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 48px);
+  padding: var(--section-pad) clamp(20px, 5vw, 48px);
 }
 
 .mission__grid {
@@ -522,7 +589,7 @@ img {
 
 .mission__copy > p:last-child {
   margin: 22px 0 0;
-  font-size: 15.5px;
+  font-size: var(--fs-base);
   line-height: 1.65;
   color: var(--ink-70);
   max-width: 58ch;
@@ -539,7 +606,7 @@ img {
 .today__inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px);
+  padding: var(--section-pad-tight) clamp(20px, 5vw, 48px);
 }
 
 .section-title {
@@ -739,7 +806,7 @@ img {
 .services__inner {
   max-width: 1160px;
   margin: 0 auto;
-  padding: clamp(64px, 9vw, 110px) clamp(20px, 5vw, 48px);
+  padding: var(--section-pad) clamp(20px, 5vw, 48px);
 }
 
 .services__head {
@@ -805,7 +872,7 @@ img {
 .service-row__desc {
   display: block;
   margin-top: 6px;
-  font-size: 15px;
+  font-size: var(--fs-base);
   line-height: 1.6;
   color: var(--ink-68);
   max-width: 62ch;
@@ -825,7 +892,7 @@ img {
 .level-seven__inner {
   max-width: 1160px;
   margin: 0 auto;
-  padding: clamp(64px, 9vw, 110px) clamp(20px, 5vw, 48px);
+  padding: var(--section-pad) clamp(20px, 5vw, 48px);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: clamp(40px, 6vw, 80px);
@@ -943,7 +1010,7 @@ img {
   font-size: 13px;
   line-height: 1.6;
   color: rgba(200, 205, 211, 0.75);
-  max-width: 62ch;
+  max-width: 56ch;
 }
 
 /* ---------- Journey ---------- */
@@ -951,7 +1018,7 @@ img {
 .journey__inner {
   max-width: 1160px;
   margin: 0 auto;
-  padding: clamp(64px, 9vw, 110px) clamp(20px, 5vw, 48px);
+  padding: var(--section-pad) clamp(20px, 5vw, 48px);
 }
 
 .journey h2 {
@@ -991,7 +1058,7 @@ img {
 
 .journey__step p:last-child {
   margin: 8px 0 0;
-  font-size: 15px;
+  font-size: var(--fs-base);
   line-height: 1.6;
   color: var(--ink-70);
 }
@@ -1001,7 +1068,7 @@ img {
 .story__inner {
   max-width: 1160px;
   margin: 0 auto;
-  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px);
+  padding: var(--section-pad-tight) clamp(20px, 5vw, 48px);
 }
 
 .story__partners {
@@ -1022,16 +1089,17 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 26px;
-  font-size: 15px;
+  font-size: var(--fs-base);
   font-weight: 500;
   color: var(--ink-75);
 }
 
 .story__placeholder {
-  margin: 0 0 0 auto;
+  margin: 8px 0 0;
+  flex-basis: 100%;
   font-family: monospace;
-  font-size: 11.5px;
-  color: rgba(23, 32, 29, 0.45);
+  font-size: 12.5px;
+  color: var(--ink-60);
 }
 
 .story__coming {
@@ -1051,7 +1119,7 @@ img {
 
 .story__coming p:last-child {
   margin: 18px 0 0;
-  font-size: 15.5px;
+  font-size: var(--fs-base);
   line-height: 1.7;
   color: rgba(23, 32, 29, 0.72);
   max-width: 58ch;
@@ -1063,7 +1131,7 @@ img {
 .contact__inner {
   max-width: 1160px;
   margin: 0 auto;
-  padding: clamp(64px, 9vw, 110px) clamp(20px, 5vw, 48px);
+  padding: var(--section-pad) clamp(20px, 5vw, 48px);
 }
 
 .contact__grid {
@@ -1087,7 +1155,7 @@ img {
 
 .contact__card p {
   margin: 8px 0 0;
-  font-size: 15px;
+  font-size: var(--fs-base);
   line-height: 1.6;
   color: var(--ink-70);
   max-width: 34ch;
@@ -1177,6 +1245,7 @@ img {
   font-size: 13px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.72);
+  max-width: 66ch;
 }
 
 /* ---------- Footer ---------- */
@@ -1286,6 +1355,8 @@ img {
 }
 
 .site-footer__legal a {
+  display: inline-block;
+  padding: 8px 0;
   color: rgba(249, 246, 239, 0.7);
   font-size: 13px;
   text-decoration: underline;

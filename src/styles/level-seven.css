@@ -3,7 +3,7 @@
 
 /* ---------- Active nav state ---------- */
 
-.nav-desktop a[aria-current='page'],
+.nav-desktop a[aria-current='page']:not(.btn-cta),
 .nav-mobile a[aria-current='page'] {
   color: var(--gold);
   font-weight: 700;
@@ -87,7 +87,7 @@
 }
 
 .l7-fineprint--wide {
-  max-width: 64ch;
+  max-width: 56ch;
 }
 
 .l7-hero__media {
@@ -139,7 +139,7 @@
   font-size: 16px;
   line-height: 1.7;
   color: var(--ink-75);
-  max-width: 62ch;
+  max-width: 56ch;
   text-wrap: pretty;
 }
 
@@ -147,7 +147,7 @@
 
 .l7-values {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   margin-top: clamp(48px, 7vw, 80px);
   border-top: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line-strong);
@@ -172,7 +172,8 @@
   margin: 6px 0 0;
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: clamp(26px, 3vw, 36px);
+  /* Capped so "Responsibility" clears its column at 1160–1440px */
+  font-size: clamp(24px, 2.4vw, 30px);
   color: var(--ink);
 }
 
@@ -402,7 +403,7 @@
 .l7-faq__a {
   margin: 0;
   padding: 0 4px 20px;
-  font-size: 15px;
+  font-size: var(--fs-base);
   line-height: 1.65;
   color: rgba(23, 32, 29, 0.72);
   max-width: 60ch;
