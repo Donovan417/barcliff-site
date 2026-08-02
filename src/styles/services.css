@@ -1,0 +1,343 @@
+/* Services page — converted from Claude Design "Services.dc.html"
+   Page-specific styles only. Shared tokens, chrome, and button/link
+   vocabulary live in src/style.css. */
+
+/* ---------- Current-page nav treatment ---------- */
+
+/* Only the link for the page being viewed carries aria-current, so this is
+   safe to load site-wide if the rule ever moves into style.css. */
+.nav-desktop a[aria-current='page'],
+.nav-mobile a[aria-current='page'] {
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ---------- Services hero ---------- */
+
+.svc-hero {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(23, 32, 29, 0.12);
+}
+
+.svc-hero__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 48px);
+}
+
+.svc-hero__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  align-items: stretch;
+}
+
+.svc-hero__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 7vw, 96px) clamp(0px, 3vw, 48px) clamp(48px, 7vw, 96px) 0;
+}
+
+.svc-hero h1 {
+  margin: 14px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(34px, 4.6vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 16ch;
+  text-wrap: pretty;
+}
+
+.svc-hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.svc-hero__lede {
+  margin: 20px 0 0;
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.65;
+  color: var(--ink-75);
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+
+.svc-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(23, 32, 29, 0.2);
+}
+
+.svc-jump a {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.svc-jump a:hover {
+  color: var(--gold);
+}
+
+.svc-jump a:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.svc-hero__media {
+  position: relative;
+  min-height: 320px;
+}
+
+.svc-hero__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 38%;
+}
+
+/* ---------- Who each service is for ---------- */
+
+.svc-audience {
+  background: var(--navy);
+}
+
+.svc-audience__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 44px) clamp(20px, 5vw, 48px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+}
+
+.svc-audience p {
+  margin: 0;
+  flex: 1 1 min(100%, 380px);
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.svc-audience strong {
+  color: #ffffff;
+}
+
+/* ---------- Service detail sections ---------- */
+
+/* #community sits directly above the cream "How it works" band and keeps
+   only its top rule, unlike the default .section-white treatment. Doubled
+   selector so it outranks .section-white whatever the import order. */
+.svc-detail.svc-detail--flush {
+  border-bottom: none;
+}
+
+.svc-detail__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px);
+}
+
+.svc-detail__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(24px, 4vw, 64px);
+  padding-top: 26px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.svc-detail__num {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.svc-detail__head h2 {
+  margin: 8px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(27px, 3.2vw, 38px);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.svc-detail__note {
+  margin: 14px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-60);
+  max-width: 30ch;
+}
+
+.svc-detail__body {
+  grid-column: span 2;
+  min-width: min(100%, 400px);
+}
+
+.svc-detail__lede {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(23, 32, 29, 0.8);
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.svc-detail__copy {
+  margin: 18px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-68);
+  max-width: 58ch;
+}
+
+.svc-detail__trades {
+  margin: 18px 0 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-68);
+}
+
+.svc-detail__fine {
+  margin: 14px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(23, 32, 29, 0.55);
+  max-width: 58ch;
+}
+
+/* ---------- For people / for owners split ---------- */
+
+.svc-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px 40px;
+  margin-top: 22px;
+}
+
+.svc-split__item {
+  padding-left: 16px;
+}
+
+.svc-split__item--gold {
+  border-left: 2px solid var(--gold);
+}
+
+.svc-split__item--navy {
+  border-left: 2px solid var(--navy);
+}
+
+.svc-split__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+.svc-split__desc {
+  margin: 5px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-68);
+}
+
+/* ---------- Section actions ---------- */
+
+.svc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+/* Descendant selectors so these hold regardless of stylesheet import order. */
+
+/* Slightly taller than the header .btn-cta, with room for the arrow. */
+.svc-actions .svc-btn {
+  gap: 8px;
+  min-height: 46px;
+}
+
+.svc-actions .svc-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  padding: 12px 0;
+}
+
+/* ---------- How it works ---------- */
+
+.svc-how__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px);
+}
+
+.svc-how h2 {
+  margin: 0 0 36px;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(27px, 3.4vw, 40px);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.svc-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(44px, 6vw, 64px);
+  padding: clamp(26px, 4vw, 40px);
+  background: var(--navy);
+  border-radius: 6px;
+}
+
+.svc-cta__text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(20px, 2.5vw, 26px);
+  color: #ffffff;
+  max-width: 24ch;
+  text-wrap: pretty;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 899px) {
+  .svc-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-hero__copy {
+    padding: clamp(48px, 7vw, 96px) 0 clamp(36px, 6vw, 96px);
+  }
+
+  .svc-hero__media {
+    min-height: 260px;
+  }
+
+  /* The auto-fit track count drops to one here, so the body must stop
+     spanning two columns or it would force an implicit overflowing track. */
+  .svc-detail__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-detail__body {
+    grid-column: auto;
+    min-width: 0;
+  }
+}

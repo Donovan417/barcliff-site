@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#F9F6EF;color:#17201D;font-family:'Public Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#0F2A4D}
+  a:hover{color:#8F6E20}
+  input,select,textarea,button{font-family:'Public Sans',Helvetica,Arial,sans-serif}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}html{scroll-behavior:auto}}
+</style>
+</helmet>
+
+<div data-screen-label="Utility line" style="background:#071629">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center;justify-content:space-between;padding:9px clamp(16px,4vw,40px)">
+    <p style="margin:0;font-size:12.5px;letter-spacing:0.02em;color:rgba(249,246,239,0.85)">A neighborhood resource for people and partners</p>
+    <p style="margin:0;font-size:12.5px;color:rgba(249,246,239,0.85)">In a crisis? Call 911 &middot; Call or text 988</p>
+  </div>
+</div>
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(249,246,239,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(23,32,29,0.16)">
+  <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:0 clamp(16px,4vw,40px);height:68px">
+    <a href="Barcliff Homepage V2.dc.html" style="display:flex;align-items:baseline;gap:10px;text-decoration:none;color:#17201D">
+      <span style="font-family:'Source Serif 4',serif;font-weight:600;font-size:19px;letter-spacing:0.01em">Barcliff Impact Solutions</span>
+    </a>
+    <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Main navigation" style="display:flex;align-items:center;gap:6px;margin-left:auto">
+        <a href="Services.dc.html" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Services</a>
+        <a href="Level Seven.dc.html" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Level Seven</a>
+        <a href="Partner With Us.dc.html" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Partners</a>
+        <a href="#story" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Stories</a>
+        <a href="#contact" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Contact</a>
+        <a href="Find Help.dc.html" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;margin-left:10px;background:#0F2A4D;color:#FFFFFF;font-weight:600;font-size:14.5px;text-decoration:none;border-radius:4px;transition:background .15s" style-hover="background:#081C36" style-active="transform:translateY(1px)" style-focus="outline:3px solid #8F6E20;outline-offset:2px">Find Help</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ mobileNav }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+        <a href="Find Help.dc.html" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;background:#0F2A4D;color:#FFFFFF;font-weight:600;font-size:14px;text-decoration:none;border-radius:4px;white-space:nowrap" style-hover="background:#081C36" style-focus="outline:3px solid #8F6E20;outline-offset:2px">Find Help</a>
+        <button type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpenAria }}" style="min-height:44px;padding:0 14px;display:flex;align-items:center;background:transparent;border:1px solid rgba(23,32,29,0.4);border-radius:4px;cursor:pointer;color:#17201D;font-weight:600;font-size:14px" style-hover="background:rgba(23,32,29,0.06)" style-focus="outline:3px solid #8F6E20;outline-offset:2px">{{ menuLabel }}</button>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile navigation" style="position:absolute;top:68px;left:0;right:0;background:#F9F6EF;border-bottom:1px solid rgba(23,32,29,0.2);box-shadow:0 16px 32px rgba(23,32,29,0.12);padding:10px 20px 22px;display:flex;flex-direction:column">
+      <a href="Services.dc.html" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none;border-bottom:1px solid rgba(23,32,29,0.1)" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Services</a>
+      <a href="Level Seven.dc.html" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none;border-bottom:1px solid rgba(23,32,29,0.1)" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Level Seven</a>
+      <a href="Partner With Us.dc.html" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none;border-bottom:1px solid rgba(23,32,29,0.1)" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Partners</a>
+      <a href="#story" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none;border-bottom:1px solid rgba(23,32,29,0.1)" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Stories</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Contact</a>
+    </nav>
+  </sc-if>
+</header>
+
+<section data-screen-label="Hero">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,48px) 0">
+    <h1 style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(38px,5.6vw,68px);line-height:1.12;letter-spacing:-0.015em;color:#17201D;max-width:900px;text-wrap:pretty">Connecting people. <em style="font-style:italic;color:#8F6E20">Building futures.</em> Strengthening communities.</h1>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:flex-end;justify-content:space-between;margin-top:clamp(24px,3vw,36px)">
+      <p style="margin:0;font-size:clamp(16px,1.8vw,18px);line-height:1.65;color:rgba(23,32,29,0.75);max-width:52ch;text-wrap:pretty">Barcliff Impact Solutions connects people with jobs, housing, trusted services, and community resources&mdash;then walks alongside them as they move forward.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <a href="Find Help.dc.html" style="display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 28px;background:#0F2A4D;color:#FFFFFF;font-weight:600;font-size:16px;text-decoration:none;border-radius:4px;transition:background .15s" style-hover="background:#081C36" style-active="transform:translateY(1px)" style-focus="outline:3px solid #8F6E20;outline-offset:2px">Find Help <span aria-hidden="true">&rarr;</span></a>
+        <a href="Partner With Us.dc.html" style="display:inline-flex;align-items:center;min-height:50px;padding:0 24px;background:transparent;color:#17201D;font-weight:600;font-size:15px;text-decoration:none;border:1px solid rgba(23,32,29,0.45);border-radius:4px;transition:border-color .15s, background .15s" style-hover="border-color:#17201D;background:rgba(23,32,29,0.04)" style-active="transform:translateY(1px)" style-focus="outline:3px solid #8F6E20;outline-offset:2px">Become a Partner</a>
+        <a href="Level Seven.dc.html" style="font-size:15px;font-weight:600;color:#0F2A4D;text-decoration:underline;text-underline-offset:4px;padding:12px 4px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Learn About Level Seven <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:clamp(36px,5vw,56px) auto 0;padding:0 clamp(20px,5vw,48px)">
+    <div style="position:relative;width:100%;aspect-ratio:16/7;min-height:280px;overflow:hidden">
+      <img src="uploads/barcliff-hero-community-meeting-corrected.png" alt="Community members seated together in candid discussion at a neighborhood meeting" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%">
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px 0;padding:18px 0 0;border-bottom:1px solid rgba(23,32,29,0.18)">
+      <p style="margin:0 0 18px;flex:1 1 min(100%,300px);padding-right:28px;font-size:14px;line-height:1.55;color:rgba(23,32,29,0.75)"><strong style="color:#17201D;font-weight:600">Jobs &amp; workforce</strong> &mdash; real employer connections, not cold leads</p>
+      <p style="margin:0 0 18px;flex:1 1 min(100%,300px);padding:0 28px;border-left:1px solid rgba(23,32,29,0.18);font-size:14px;line-height:1.55;color:rgba(23,32,29,0.75)"><strong style="color:#17201D;font-weight:600">Housing &amp; property</strong> &mdash; one coordinated door for people and owners</p>
+      <p style="margin:0 0 18px;flex:1 1 min(100%,300px);padding-left:28px;border-left:1px solid rgba(23,32,29,0.18);font-size:14px;line-height:1.55;color:rgba(23,32,29,0.75)"><strong style="color:#17201D;font-weight:600">Level Seven</strong> &mdash; mentorship for anyone choosing a better path</p>
+    </div>
+    <p style="margin:14px 0 0;font-size:13.5px;color:rgba(23,32,29,0.6)">A welcoming first step. No judgment. No complicated intake.</p>
+  </div>
+</section>
+
+<section data-screen-label="Mission">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,48px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(24px,4vw,64px);padding-top:26px;border-top:1px solid rgba(23,32,29,0.25)">
+      <p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(23,32,29,0.6)">Welcome to Barcliff Impact Solutions</p>
+      <div style="grid-column:span 2;min-width:min(100%,400px)">
+        <p style="margin:0;font-family:'Source Serif 4',serif;font-weight:400;font-size:clamp(23px,2.8vw,32px);line-height:1.42;color:#17201D;max-width:34ch;text-wrap:pretty">We connect people with opportunity. From job and housing connections to community partnerships and contractor collaborations, we help individuals and families move forward.</p>
+        <p style="margin:22px 0 0;font-size:15.5px;line-height:1.65;color:rgba(23,32,29,0.7);max-width:58ch">Practical connections. Trusted partnerships. People-first guidance. You are met as a person with a future &mdash; never as a case number.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="today" data-screen-label="What do you need today" style="background:#FFFFFF;border-top:1px solid rgba(23,32,29,0.12);border-bottom:1px solid rgba(23,32,29,0.12)">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,5vw,48px)">
+    <p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8F6E20">Start here</p>
+    <h2 style="margin:10px 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(30px,3.8vw,44px);line-height:1.15;color:#17201D">What do you need today?</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:38px">
+      <a href="Services.dc.html#employment" style="position:relative;flex:1.4 1 min(100%,440px);min-height:360px;display:flex;border-radius:6px;overflow:hidden;text-decoration:none;color:#FFFFFF" style-hover="box-shadow:0 12px 28px rgba(23,32,29,0.18)" style-focus="outline:3px solid #0F2A4D;outline-offset:3px">
+        <div style="position:absolute;inset:0;overflow:hidden"><img src="uploads/barcliff-employment-guidance.jpg" alt="Two people working together at a laptop, one guiding the other through materials on screen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 38%"></div>
+        <div style="position:relative;margin-top:auto;width:100%;padding:44px 26px 22px;background:linear-gradient(180deg, rgba(23,32,29,0) 0%, rgba(23,32,29,0.78) 60%);display:flex;align-items:flex-end;justify-content:space-between;gap:16px;pointer-events:none">
+          <div><p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:24px;color:#FFFFFF">Employment connections</p><p style="margin:5px 0 0;font-size:14px;color:rgba(255,255,255,0.85)">Employers, workforce programs, career resources</p></div>
+          <span style="font-size:22px;flex:none" aria-hidden="true">&rarr;</span>
+        </div>
+      </a>
+      <a href="Services.dc.html#housing" style="flex:1 1 min(100%,300px);min-height:360px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:28px 26px;background:#0F2A4D;border-radius:6px;text-decoration:none;color:#FFFFFF;transition:background .15s" style-hover="background:#081C36" style-focus="outline:3px solid #8F6E20;outline-offset:3px">
+        <div><p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:24px;color:#FFFFFF">Housing connections</p><p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.82);max-width:30ch">Stable-housing support for people, property solutions for owners.</p></div>
+        <span style="font-size:22px" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:14px">
+      <a href="Find Help.dc.html" style="position:relative;flex:1.4 1 min(100%,440px);min-height:250px;display:flex;border-radius:6px;overflow:hidden;text-decoration:none;color:#FFFFFF" style-hover="box-shadow:0 12px 28px rgba(23,32,29,0.18)" style-focus="outline:3px solid #0F2A4D;outline-offset:3px">
+        <div style="position:absolute;inset:0;overflow:hidden"><img src="uploads/barcliff-community-resources-corrected.png" alt="Volunteers coordinating food resources together at a community distribution table" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%"></div>
+        <div style="position:relative;margin-top:auto;width:100%;padding:44px 26px 22px;background:linear-gradient(180deg, rgba(23,32,29,0) 0%, rgba(23,32,29,0.78) 60%);display:flex;align-items:flex-end;justify-content:space-between;gap:16px;pointer-events:none">
+          <div><p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:24px;color:#FFFFFF">Community resources</p><p style="margin:5px 0 0;font-size:14px;color:rgba(255,255,255,0.85)">Local programs, support networks, everyday help</p></div>
+          <span style="font-size:22px;flex:none" aria-hidden="true">&rarr;</span>
+        </div>
+      </a>
+      <a href="Partner With Us.dc.html" style="flex:1 1 min(100%,300px);min-height:250px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:28px 26px;background:#F9F6EF;border:1px solid rgba(23,32,29,0.25);border-radius:6px;text-decoration:none;color:#17201D;transition:border-color .15s, background .15s" style-hover="border-color:#17201D" style-focus="outline:3px solid #0F2A4D;outline-offset:3px">
+        <div><p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:24px;color:#17201D">Business partnerships</p><p style="margin:8px 0 0;font-size:14.5px;line-height:1.55;color:rgba(23,32,29,0.7);max-width:30ch">Hire, mentor, contract, or collaborate with Barcliff.</p></div>
+        <span style="font-size:22px;color:#0F2A4D" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="services" data-screen-label="Services">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(64px,9vw,110px) clamp(20px,5vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between">
+      <h2 style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(30px,3.8vw,44px);line-height:1.15;color:#17201D">Our services</h2>
+      <a href="Services.dc.html" style="font-size:15px;font-weight:600;color:#0F2A4D;text-decoration:underline;text-underline-offset:4px;padding:10px 0" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">All services <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div style="margin-top:36px">
+      <a href="Services.dc.html#employment" style="display:grid;grid-template-columns:minmax(48px,90px) 1fr auto;gap:clamp(14px,3vw,32px);align-items:baseline;padding:26px 8px;border-top:1px solid rgba(23,32,29,0.22);text-decoration:none;color:#17201D;transition:background .15s" style-hover="background:rgba(23,32,29,0.035)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:14px;font-weight:600;color:#8F6E20">01</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(21px,2.4vw,27px);color:#17201D">Employment Connections</span><span style="display:block;margin-top:6px;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.68);max-width:62ch">We connect job seekers with employers, workforce programs, and career resources.</span></span>
+        <span style="font-size:20px;color:#0F2A4D" aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="Services.dc.html#housing" style="display:grid;grid-template-columns:minmax(48px,90px) 1fr auto;gap:clamp(14px,3vw,32px);align-items:baseline;padding:26px 8px;border-top:1px solid rgba(23,32,29,0.22);text-decoration:none;color:#17201D;transition:background .15s" style-hover="background:rgba(23,32,29,0.035)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:14px;font-weight:600;color:#8F6E20">02</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(21px,2.4vw,27px);color:#17201D">Housing &amp; Property Solutions</span><span style="display:block;margin-top:6px;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.68);max-width:62ch">Stable housing, property management, maintenance coordination, and contracting solutions for homes and businesses.</span></span>
+        <span style="font-size:20px;color:#0F2A4D" aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="Services.dc.html#contracting" style="display:grid;grid-template-columns:minmax(48px,90px) 1fr auto;gap:clamp(14px,3vw,32px);align-items:baseline;padding:26px 8px;border-top:1px solid rgba(23,32,29,0.22);text-decoration:none;color:#17201D;transition:background .15s" style-hover="background:rgba(23,32,29,0.035)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:14px;font-weight:600;color:#8F6E20">03</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(21px,2.4vw,27px);color:#17201D">Contracting Services</span><span style="display:block;margin-top:6px;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.68);max-width:62ch">Flooring, painting, remodeling, maintenance, and cleaning &mdash; coordinated through trusted partnerships.</span></span>
+        <span style="font-size:20px;color:#0F2A4D" aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="Services.dc.html#community" style="display:grid;grid-template-columns:minmax(48px,90px) 1fr auto;gap:clamp(14px,3vw,32px);align-items:baseline;padding:26px 8px;border-top:1px solid rgba(23,32,29,0.22);border-bottom:1px solid rgba(23,32,29,0.22);text-decoration:none;color:#17201D;transition:background .15s" style-hover="background:rgba(23,32,29,0.035)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:14px;font-weight:600;color:#8F6E20">04</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(21px,2.4vw,27px);color:#17201D">Community Resources &amp; Business Partnerships</span><span style="display:block;margin-top:6px;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.68);max-width:62ch">The right local programs, collaborators, and support networks for people and organizations.</span></span>
+        <span style="font-size:20px;color:#0F2A4D" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="level-seven" data-screen-label="Level Seven" style="background:#071629">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(64px,9vw,110px) clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(40px,6vw,80px);align-items:center">
+    <div style="display:flex;justify-content:center">
+      <img src="assets/level-seven-logo.jpg" alt="Level Seven — mentorship, leadership, empowerment" style="width:min(100%,360px);border:1px solid rgba(210,166,74,0.45);display:block">
+    </div>
+    <div>
+      <p style="margin:0;font-size:12.5px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#C8CDD3">Level Seven &middot; A Barcliff program</p>
+      <h2 style="margin:16px 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(32px,4.2vw,50px);line-height:1.1;color:#F7F3EA">Live a <em style="font-style:italic;color:#D2A64A">Square</em> Life.</h2>
+      <p style="margin:22px 0 0;font-size:16px;line-height:1.7;color:rgba(200,205,211,0.95);max-width:58ch;text-wrap:pretty">Level Seven is a mentorship and life-development program for youth and adults choosing a better path. Through mentorship, education, sports training, life coaching, and trusted community partnerships, participants build confidence, discipline, leadership, and skills for lasting change.</p>
+      <p style="margin:22px 0 0;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#D2A64A">Integrity &nbsp;&middot;&nbsp; Responsibility &nbsp;&middot;&nbsp; Respect &nbsp;&middot;&nbsp; Purpose</p>
+      <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(210,166,74,0.35);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:8px 28px">
+        <p style="margin:0;font-size:14.5px;line-height:1.9;color:rgba(247,243,234,0.9)">Mentorship<br>Education<br>Sports training</p>
+        <p style="margin:0;font-size:14.5px;line-height:1.9;color:rgba(247,243,234,0.9)">Life coaching<br>Recovery resource navigation<br>Mental-health resource navigation</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:30px">
+        <a href="Level Seven.dc.html" style="display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 28px;background:#D2A64A;color:#071629;font-weight:700;font-size:15.5px;text-decoration:none;border-radius:4px;transition:background .15s" style-hover="background:#DFB863" style-active="transform:translateY(1px)" style-focus="outline:3px solid #F7F3EA;outline-offset:3px">Learn About Level Seven <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <p style="margin:24px 0 0;font-size:13px;line-height:1.6;color:rgba(200,205,211,0.75);max-width:62ch">Level Seven offers mentorship and resource navigation. We do not provide clinical treatment, mental-health care, or emergency services.</p>
+    </div>
+  </div>
+</section>
+
+<section id="journey" data-screen-label="Your Journey">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(64px,9vw,110px) clamp(20px,5vw,48px)">
+    <h2 style="margin:0 0 40px;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.15;color:#17201D">Your journey starts here</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:clamp(24px,4vw,48px)">
+      <div style="border-top:1px solid rgba(23,32,29,0.35);padding-top:20px">
+        <p style="margin:0;font-size:14px;font-weight:600;color:#8F6E20">01</p>
+        <p style="margin:8px 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:23px;color:#17201D">Connect</p>
+        <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.7)">Tell us where you are and what you need.</p>
+      </div>
+      <div style="border-top:1px solid rgba(23,32,29,0.35);padding-top:20px">
+        <p style="margin:0;font-size:14px;font-weight:600;color:#8F6E20">02</p>
+        <p style="margin:8px 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:23px;color:#17201D">Grow</p>
+        <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.7)">Get matched with trusted people, programs, and opportunities.</p>
+      </div>
+      <div style="border-top:1px solid rgba(23,32,29,0.35);padding-top:20px">
+        <p style="margin:0;font-size:14px;font-weight:600;color:#8F6E20">03</p>
+        <p style="margin:8px 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:23px;color:#17201D">Thrive</p>
+        <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.7)">Build stability, confidence, and a future you can own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="story" data-screen-label="Credibility" style="background:#FFFFFF;border-top:1px solid rgba(23,32,29,0.12);border-bottom:1px solid rgba(23,32,29,0.12)">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,5vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;gap:10px 0;align-items:center;padding-bottom:26px;border-bottom:1px solid rgba(23,32,29,0.18)">
+      <p style="margin:0 28px 0 0;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(23,32,29,0.6)">Working together with</p>
+      <p style="margin:0;display:flex;flex-wrap:wrap;gap:8px 26px;font-size:15px;font-weight:500;color:rgba(23,32,29,0.75)"><span>Employers</span><span>Workforce programs</span><span>Housing partners</span><span>Community organizations</span><span>Trusted contractors</span></p>
+      <p style="margin:0 0 0 auto;font-family:monospace;font-size:11.5px;color:rgba(23,32,29,0.45)">partner names to come</p>
+    </div>
+    <div style="margin-top:clamp(36px,5vw,56px);max-width:720px">
+      <p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8F6E20">Participant stories</p>
+      <p style="margin:16px 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(24px,3vw,34px);line-height:1.3;color:#17201D;text-wrap:pretty">Stories coming soon &mdash; told by the people who lived them.</p>
+      <p style="margin:18px 0 0;font-size:15.5px;line-height:1.7;color:rgba(23,32,29,0.72);max-width:58ch;text-wrap:pretty">First-person stories from Barcliff and Level Seven participants will appear here. Each one will be shared only with the storyteller&rsquo;s written permission, in their own words &mdash; nothing is published without it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Get involved and contact">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(64px,9vw,110px) clamp(20px,5vw,48px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(28px,4vw,48px)">
+      <div style="border-top:1px solid rgba(23,32,29,0.35);padding-top:20px">
+        <p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:22px;color:#17201D">I need support</p>
+        <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.7);max-width:34ch">Jobs, housing, resources, or a mentor &mdash; one short message starts it.</p>
+        <a href="Find Help.dc.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 0;font-size:15px;font-weight:600;color:#0F2A4D;text-decoration:underline;text-underline-offset:4px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Find your next step <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div style="border-top:1px solid rgba(23,32,29,0.35);padding-top:20px">
+        <p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:22px;color:#17201D">I want to mentor or partner</p>
+        <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.7);max-width:34ch">Employers, mentors, and organizations make this work possible.</p>
+        <a href="Partner With Us.dc.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 0;font-size:15px;font-weight:600;color:#0F2A4D;text-decoration:underline;text-underline-offset:4px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Help move someone forward <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div style="border-top:1px solid rgba(23,32,29,0.35);padding-top:20px">
+        <p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:22px;color:#17201D">I need contractor services</p>
+        <p style="margin:8px 0 0;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.7);max-width:34ch">Flooring, painting, remodeling, maintenance, cleaning &mdash; trusted crews.</p>
+        <a href="Services.dc.html#contracting" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 0;font-size:15px;font-weight:600;color:#0F2A4D;text-decoration:underline;text-underline-offset:4px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Start a property project <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between;margin-top:clamp(44px,6vw,64px);padding:clamp(26px,4vw,40px);background:#0F2A4D;border-radius:6px">
+      <div>
+        <p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(21px,2.6vw,27px);color:#FFFFFF">Start with one message.</p>
+        <p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.8)">Contact details and service area coming soon.</p>
+      </div>
+      <a href="Find Help.dc.html" style="display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 28px;background:#F9F6EF;color:#0F2A4D;font-weight:700;font-size:16px;text-decoration:none;border-radius:4px;transition:background .15s" style-hover="background:#FFFFFF" style-active="transform:translateY(1px)" style-focus="outline:3px solid #D2A64A;outline-offset:3px">Find Help <span aria-hidden="true">&rarr;</span></a>
+      <p style="margin:0;flex-basis:100%;font-size:13px;line-height:1.6;color:rgba(255,255,255,0.72)">If you are in immediate danger, call 911. For a mental-health or substance-use crisis in the U.S., call or text 988.</p>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="background:#071629;color:#F9F6EF">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(48px,7vw,72px) clamp(20px,5vw,48px) 36px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(32px,5vw,64px)">
+      <div style="max-width:360px">
+        <p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:19px;color:#F9F6EF">Barcliff Impact Solutions</p>
+        <p style="margin:14px 0 0;font-size:14.5px;line-height:1.65;color:rgba(249,246,239,0.75)">We connect people with jobs, housing, trusted services, and community resources &mdash; and walk alongside them as they move forward.</p>
+        <p style="margin:16px 0 0;font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:#D2A64A">Level Seven &mdash; Live a Square Life.</p>
+      </div>
+      <div>
+        <p style="margin:0 0 12px;font-size:12.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(249,246,239,0.55)">Explore</p>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <a href="Services.dc.html" style="color:rgba(249,246,239,0.85);text-decoration:none;font-size:14.5px;padding:7px 0" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Services</a>
+          <a href="Level Seven.dc.html" style="color:rgba(249,246,239,0.85);text-decoration:none;font-size:14.5px;padding:7px 0" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Level Seven</a>
+          <a href="Partner With Us.dc.html" style="color:rgba(249,246,239,0.85);text-decoration:none;font-size:14.5px;padding:7px 0" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Partner With Us</a>
+          <a href="Find Help.dc.html" style="color:rgba(249,246,239,0.85);text-decoration:none;font-size:14.5px;padding:7px 0" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Find Help</a>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 12px;font-size:12.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(249,246,239,0.55)">Contact</p>
+        <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(249,246,239,0.85)">Contact details and service area coming soon.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;margin-top:44px;padding-top:24px;border-top:1px solid rgba(249,246,239,0.18)">
+      <p style="margin:0;font-size:13px;color:rgba(249,246,239,0.55)">&copy; 2026 Barcliff Impact Solutions &middot; Prototype</p>
+      <div style="display:flex;gap:24px">
+        <a href="Barcliff Homepage V2.dc.html" style="color:rgba(249,246,239,0.7);font-size:13px;text-decoration:underline;text-underline-offset:3px" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Privacy</a>
+        <a href="Barcliff Homepage V2.dc.html" style="color:rgba(249,246,239,0.7);font-size:13px;text-decoration:underline;text-underline-offset:3px" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;forceMobileNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Prototype preview&quot;}}">
+class Component extends DCLogic {
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, menuOpen: false };
+  componentDidMount() {
+    this._onResize = () => { const vw = window.innerWidth; if (Math.abs(vw - this.state.vw) > 4) this.setState({ vw }); };
+    window.addEventListener('resize', this._onResize);
+    const h = decodeURIComponent((location.hash || '').slice(1));
+    if (h) setTimeout(() => { const el = document.getElementById(h); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80 }); }, 400);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+  renderVals() {
+    const mobile = (this.props.forceMobileNav ?? false) || this.state.vw < 900;
+    const menuOpen = mobile && this.state.menuOpen;
+    return {
+      desktopNav: !mobile, mobileNav: mobile, menuOpen,
+      menuOpenAria: menuOpen ? 'true' : 'false',
+      menuLabel: menuOpen ? 'Close' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

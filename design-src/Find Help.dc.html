@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const W=new URLSearchParams(location.search).get("theme");if(W==="light"||W==="dark"){document.documentElement.dataset.theme=W}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const W=(q)=>{const X=q.focus;if(!X)return;q.focus=function(H){X.call(this,{...H,preventScroll:true})}};W(HTMLElement.prototype);W(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){W(MathMLElement.prototype)}const $=(q)=>{q.removeAttribute("autofocus");q.inert=true;if(!(q instanceof HTMLElement))q.removeAttribute("tabindex")};const z=(q)=>{if(q.hasAttribute("autofocus"))$(q);for(const X of q.querySelectorAll("[autofocus]")){$(X)}};z(document.documentElement);new MutationObserver((q)=>{for(const X of q){for(const H of X.addedNodes){if(H.nodeType===1)z(H)}}}).observe(document,{childList:true,subtree:true})}}{const W=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const $=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if($&&$!=="normal")return;const z=(j)=>{if(!j)return null;const F=getComputedStyle(j).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!F)return null;const G=F[4]==null?1:parseFloat(F[4])/(F[4].endsWith("%")?100:1);if(G<0.99)return null;return[+F[1],+F[2],+F[3]]};const q=z(document.body)||z(document.documentElement);if(!q)return;const X=(j)=>{const F=j/255;return F<=0.04045?F/12.92:((F+0.055)/1.055)**2.4};const H=0.2126*X(q[0])+0.7152*X(q[1])+0.0722*X(q[2]);document.documentElement.style.setProperty("color-scheme",H<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")W();else window.addEventListener("load",W)}var b=[];var p=false;var u=30000;var d=3000;document.addEventListener("DOMContentLoaded",()=>{const W=window.Babel;const $="om-src-id";if(W&&W.registerPlugin&&!(W.availablePlugins&&W.availablePlugins[$])){W.registerPlugin($,({types:H})=>({visitor:{JSXOpeningElement(j,F){const G=j.node;if(G.name&&G.name.type==="JSXMemberExpression")return;for(let Q=0;Q<G.attributes.length;Q++){const V=G.attributes[Q];if(V.type==="JSXAttribute"&&V.name&&V.name.name==="data-om-id")return}const P=F.file&&F.file.opts&&F.file.opts.filename||"?";const R=G.loc&&G.loc.start;const J=`jsx:${P}:${G.start??0}:${R?R.line:0}:${R?R.column+1:0}`;G.attributes.push(H.jsxAttribute(H.jsxIdentifier("data-om-id"),H.stringLiteral(J)))}}}))}const z="om-text-extract";let q=false;if(p&&W&&W.registerPlugin&&!(W.availablePlugins&&W.availablePlugins[z])){const H=window.React;if(H&&H.useSyncExternalStore&&H.createElement){q=true;const j={};const F=new Set;let G=0;window.__omTextO=j;window.__omTextSet=(J)=>{for(const Q in J){const V=J[Q];if(V==null)delete j[Q];else j[Q]=V}G++;F.forEach((Q)=>Q())};const P=(J)=>{F.add(J);return()=>F.delete(J)};const R=()=>G;window.__OmT=function J(Q){H.useSyncExternalStore(P,R,R);return H.createElement("span",{"data-om-text":Q.i,className:"__om-t"},Q.i in j?j[Q.i]:Q.children)};W.registerPlugin(z,({types:J})=>{const Q={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const V={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const Y=(K,M)=>J.logicalExpression("??",J.memberExpression(J.logicalExpression("||",J.memberExpression(J.identifier("window"),J.identifier("__omTextO")),J.objectExpression([])),J.stringLiteral(K),true),M);const Z=(K)=>K.file&&K.file.opts&&K.file.opts.filename||"?";const B=(K)=>K.file&&K.file.code||"";const U=(K,M)=>{const L=(D)=>D&&D.start!=null&&D.end!=null&&(D.type==="StringLiteral"||D.type==="TemplateLiteral"&&D.expressions.length===0)?[D.start,D.end]:null;const N=L(M);if(N)return N;if(M&&M.type==="Identifier"){const D=K.scope.getBinding(M.name);if(D&&D.constant&&D.path.node.type==="VariableDeclarator"){return L(D.path.node.init)}}return null};const x=(K,M,L)=>{const N=K.node;let D=false;const f=(w,A)=>{D=true;return J.jsxElement(J.jsxOpeningElement(J.jsxIdentifier("__OmT"),[J.jsxAttribute(J.jsxIdentifier("i"),J.stringLiteral(w))],false),J.jsxClosingElement(J.jsxIdentifier("__OmT")),[A],false)};const C=N.children.map((w)=>{if(w.type==="JSXText"){if(w.start==null||w.end==null)return w;const A=L.slice(w.start,w.end);const S=A.length-A.trimStart().length;const O=A.length-A.trimEnd().length;if(S+O>=A.length)return w;return f(`txt:${M}:${w.start+S}:${w.end-O}`,w)}if(w.type==="JSXExpressionContainer"){const A=U(K,w.expression);if(A)return f(`str:${M}:${A[0]}:${A[1]}`,w)}return w});if(D)N.children=C};return{visitor:{JSXOpeningElement(K,M){const L=K.node;const N=Z(M);const D={};for(let f=0;f<L.attributes.length;f++){const C=L.attributes[f];if(C.type!=="JSXAttribute"||!C.name)continue;const w=C.name.name;if(!V[w])continue;if(!C.value||C.value.type!=="StringLiteral")continue;if(C.value.start==null||C.value.end==null)continue;const A=`txt:${N}:${C.value.start}:${C.value.end}`;D[w]=A;C.value=J.jsxExpressionContainer(Y(A,J.stringLiteral(C.value.value)))}if(Object.keys(D).length){L.attributes.push(J.jsxAttribute(J.jsxIdentifier("data-om-text-attrs"),J.stringLiteral(JSON.stringify(D))))}},JSXElement(K,M){const L=K.node.openingElement;const N=L&&L.name&&L.name.name;if(N==="__OmT")return;if(typeof N==="string"&&Q[N])return;x(K,Z(M),B(M))},JSXFragment(K,M){x(K,Z(M),B(M))}}}})}}const X=q?["transform-react-jsx-source",$,z]:["transform-react-jsx-source",$];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((H,j)=>{const F=H.getAttribute("data-plugins")||"";const G=X.filter((P)=>F.indexOf(P)<0);if(G.length){H.setAttribute("data-plugins",F?`${F},${G.join(",")}`:G.join(","))}if(!H.hasAttribute("data-filename")){H.setAttribute("data-filename",H.getAttribute("src")||`inline-${j}`)}})});var I=window.parent;var g="not editable here — open the project in the Claude Design editor to save";var n=()=>Promise.resolve({persisted:false,noHost:true,reason:g});var k=n;var v="data/storage.json";var l=()=>{try{const W=new URL(document.baseURI);const $=W.pathname.match(/\/projects\/([^/]+)\/serve\//);if($)return $[1];return W.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var o=()=>{try{const W=new URL(document.baseURI);const $=W.pathname.indexOf("/serve/");if($>=0)return W.origin+W.pathname.slice(0,$+"/serve/".length)+v}catch{}return"./"+v};var E=null;var _=()=>{if(!E){E=fetch(o(),{cache:"no-store"}).then((W)=>{if(W.ok)return W.text();return W.status===404?"":null}).catch(()=>null).then((W)=>{if(W===null){E=null;return null}const $=new Map;if(!W)return $;let z;try{z=JSON.parse(W)}catch{console.warn("[omelette.storage] "+v+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");E=null;return null}if(z===null||typeof z!=="object"||Array.isArray(z)){console.warn("[omelette.storage] "+v+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");E=null;return null}const q=z;if("data"in q){const X=q.data;if(X===null||typeof X!=="object"||Array.isArray(X)){console.warn("[omelette.storage] "+v+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');E=null;return null}const H=q._meta;const j=H!==null&&typeof H==="object"?H.project:undefined;if(typeof j==="string"&&j!==""&&j!==l())return $;for(const F of Object.keys(X))$.set(F,X[F]);return $}for(const X of Object.keys(q)){if(X!=="_meta")$.set(X,q[X])}return $})}return E};var y=(W)=>k(v,JSON.stringify({_meta:{project:l(),version:1},data:Object.fromEntries(W)},null,2));var m=Promise.resolve();var T=(W)=>{const $=m.then(W);m=$.then(()=>{return},()=>{return});return $};var s=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var a=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var r=(W,$,z)=>{if(s.test($)||a.test(W)&&typeof z==="string"&&z.length>=8){console.warn('[omelette.storage] the value for "'+W+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var c={persisted:false,reason:"could not load the existing store — not overwriting it"};var i={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var h=new Set;var t={get:(W)=>{if(typeof W!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return T(_).then(($)=>{if($===null){h.add(W);return null}h.delete(W);if(!$.has(W))return null;const z=$.get(W);return z==null?null:JSON.parse(JSON.stringify(z))})},set:(W,$)=>{if(typeof W!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let z;try{z=JSON.stringify($)}catch(X){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(X)+")"))}if(z===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}r(W,z,$);const q=JSON.parse(z);return T(()=>_().then((X)=>{if(X===null)return c;if(h.has(W)){if(X.has(W))return i;h.delete(W)}X.set(W,q);return y(X)}))},delete:(W)=>{if(typeof W!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return T(()=>_().then(($)=>{if($===null)return c;if(h.has(W)){if($.has(W))return i;h.delete(W)}$.delete(W);return y($)}))},keys:()=>T(_).then((W)=>W===null?[]:Array.from(W.keys()))};window.omelette={writeFile:(W,$)=>k(W,$).then((z)=>{if(!z.persisted&&!z.noHost){throw new Error(z.reason||"write failed")}}),storage:t};if(I&&I!==window){const W=(J,Q)=>{try{I.postMessage({__omelette_log:true,type:J,data:Q},"*")}catch{}};["log","warn","error"].forEach((J)=>{const Q=console[J];console[J]=(...V)=>{const Y=V.map((Z)=>{try{return typeof Z==="object"?JSON.stringify(Z):String(Z)}catch{try{return String(Z)}catch{return"[unstringifiable]"}}}).join(" ");W(J,Y);Q.apply(console,V)}});window.addEventListener("error",(J)=>{const Q=J.target;if(Q&&Q!==window&&Q.tagName){const V=Q.src||Q.href||"";W("resource_error",`${Q.tagName} failed to load: ${V}`)}else{W("error",`${J.message||"Unknown error"} at ${J.filename||"?"}:${J.lineno||0}:${J.colno||0}`)}},true);window.addEventListener("unhandledrejection",(J)=>{const Q=J.reason;const V=Q instanceof Error?`${Q.message} ${Q.stack}`:String(Q);W("error",`Unhandled rejection: ${V}`)});window.addEventListener("click",(J)=>{if(J.defaultPrevented||J.button!==0)return;if(J.metaKey||J.ctrlKey||J.shiftKey||J.altKey)return;const Q=J.composedPath?J.composedPath():[];const V=["button","input","select","textarea","summary","label"];let Y=null;for(const x of Q){if(!(x instanceof Element))continue;if(x.localName==="a"){if(!(x instanceof HTMLAnchorElement))return;Y=x;break}if(V.indexOf(x.localName)!==-1)return}if(!Y)return;if(Y.isContentEditable)return;const Z=Y.closest("[contenteditable]");if(Z&&Z.getAttribute("contenteditable")!=="false")return;const B=(Y.getAttribute("target")||"_self").toLowerCase();if(B!=="_self"&&B!=="_top"&&B!=="_parent")return;let U;try{U=new URL(Y.href)}catch{return}if(U.protocol!=="http:"&&U.protocol!=="https:")return;if(location.origin==="null")return;if(U.origin===location.origin)return;J.preventDefault();window.open(U.href,"_blank","noopener,noreferrer")});const $=()=>{try{I.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver($).observe(document.documentElement);const z=()=>{$();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const J=()=>document.getElementById("root")||document.querySelector("body > div[id]");const Q=J()?.firstElementChild??null;let V=0;const Y=()=>{const Z=J();if(Z&&Z.firstElementChild!==Q||++V>30){$();return}setTimeout(Y,100)};setTimeout(Y,100)};if(document.readyState==="complete")z();else window.addEventListener("load",z);const q={};let X=0;const H=(J)=>new Promise((Q,V)=>{if(!b.length){V(new Error("claude.complete: no parent origin"));return}const Y=`c${++X}`;const Z=()=>setTimeout(()=>{delete q[Y];V(new Error(`claude.complete: no data for ${u/1000}s`))},u);const B=Z();q[Y]={resolve:Q,reject:V,text:"",t:B,arm:Z};try{for(const U of b){I.postMessage({__om_api:true,id:Y,body:J},U)}}catch(U){clearTimeout(B);delete q[Y];V(U)}});const j=8;const F=async(J,Q)=>{if(!Array.isArray(J.messages)){throw new Error("claude.complete: tools require a messages array")}const V=J.messages.slice();const Y={...J,tools:J.tools.map((U)=>{if(U===null||typeof U!=="object")return U;const x={};for(const K of Object.keys(U)){if(typeof U[K]!=="function")x[K]=U[K]}return x})};const Z=Y.tool_choice;const B=Z!=null&&(Z.type==="any"||Z.type==="tool")?{...Y,tool_choice:Z.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:Z.disable_parallel_tool_use}:{type:"auto"}}:Y;for(let U=0;U<j;U++){const x=await H({...U===0?Y:B,messages:V});const K=x.message;const M=K&&Array.isArray(K.content)?K.content:null;const L=M?M.filter((D)=>D?.type==="tool_use"):[];if(K?.stop_reason!=="tool_use"||L.length===0){return x.text}const N=[];for(const D of L){const f=Q.get(D.name);if(!f){N.push({type:"tool_result",tool_use_id:D.id,content:`no handler for tool "${D.name}"`,is_error:true});continue}try{const C=await f(D.input);const w=typeof C==="string"?C:R(C)??"";N.push({type:"tool_result",tool_use_id:D.id,content:w})}catch(C){N.push({type:"tool_result",tool_use_id:D.id,content:String(C?.message??C??"tool handler failed"),is_error:true})}}V.push({role:"assistant",content:M},{role:"user",content:N})}throw new Error(`claude.complete: exceeded ${j} tool turns`)};window.claude={complete(J){const Q=J;if(Q!==null&&typeof Q==="object"&&Array.isArray(Q.tools)&&Q.tools.some((V)=>V!==null&&typeof V==="object"&&typeof V.run==="function")){const V=new Map;for(const Y of Q.tools){if(Y!==null&&typeof Y==="object"&&typeof Y.run==="function"){V.set(String(Y.name),Y.run)}}return F(Q,V)}return H(J).then((V)=>V.text)}};const G={};let P=0;k=(J,Q)=>new Promise((V)=>{if(!b.length){V({persisted:false,noHost:true,reason:g});return}const Y=`f${++P}`;const Z=setTimeout(()=>{delete G[Y];V({persisted:false,noHost:true,reason:g})},d);G[Y]={settle:V,t:Z};try{for(const B of b){I.postMessage({__om_file:true,id:Y,op:"write",path:J,content:Q},B)}}catch{clearTimeout(Z);delete G[Y];V({persisted:false,noHost:true,reason:g})}});const R=(J)=>{try{return JSON.stringify(J)}catch{return JSON.stringify(String(J))}};window.addEventListener("message",(J)=>{if(b.indexOf(J.origin)<0)return;if(J.source!==I)return;const Q=J.data;if(!Q)return;if(Q.type==="omelette-preview-refresh"){if(typeof Q.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(Q.token))return;const Z=Math.max(1,Math.floor((Q.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+Q.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+Z;return}if(Q.__om_file_r){const Z=G[Q.id];if(!Z)return;clearTimeout(Z.t);delete G[Q.id];Z.settle(Q.ok?{persisted:true}:{persisted:false,reason:Q.error||"write failed"});return}if(Q.__om_api_r){const Z=q[Q.id];if(!Z)return;if(Q.error!=null){clearTimeout(Z.t);delete q[Q.id];Z.reject(new Error(Q.error));return}if(Q.chunk!=null){clearTimeout(Z.t);Z.t=Z.arm();Z.text+=Q.chunk;return}if(Q.done){clearTimeout(Z.t);delete q[Q.id];Z.resolve({text:Q.text!=null?Q.text:Z.text,message:Q.message});return}return}if(!Q.__om_eval)return;const V=Q;const Y=(Z)=>{J.source.postMessage({...Z,__om_eval_r:1,id:V.id},J.origin)};try{const Z=(0,eval)(V.code);if(Z&&typeof Z.then==="function"){Z.then((B)=>Y({ok:1,v:R(B)}),(B)=>Y({ok:0,e:String(B)}))}else{Y({ok:1,v:R(Z)})}}catch(Z){Y({ok:0,e:String(Z)})}})}})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#F9F6EF;color:#17201D;font-family:'Public Sans',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#0F2A4D}
+  a:hover{color:#8F6E20}
+  input,select,textarea,button{font-family:'Public Sans',Helvetica,Arial,sans-serif}
+  input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #8F6E20;outline-offset:1px}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}html{scroll-behavior:auto}}
+</style>
+</helmet>
+
+<div data-screen-label="Utility line" style="background:#071629">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center;justify-content:space-between;padding:9px clamp(16px,4vw,40px)">
+    <p style="margin:0;font-size:12.5px;letter-spacing:0.02em;color:rgba(249,246,239,0.85)">A neighborhood resource for people and partners</p>
+    <p style="margin:0;font-size:12.5px;color:rgba(249,246,239,0.85)">In a crisis? Call 911 &middot; Call or text 988</p>
+  </div>
+</div>
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(249,246,239,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(23,32,29,0.16)">
+  <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:0 clamp(16px,4vw,40px);height:68px">
+    <a href="Barcliff Homepage V2.dc.html" style="display:flex;align-items:baseline;gap:10px;text-decoration:none;color:#17201D">
+      <span style="font-family:'Source Serif 4',serif;font-weight:600;font-size:19px;letter-spacing:0.01em">Barcliff Impact Solutions</span>
+    </a>
+    <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Main navigation" style="display:flex;align-items:center;gap:6px;margin-left:auto">
+        <a href="Services.dc.html" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Services</a>
+        <a href="Level Seven.dc.html" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Level Seven</a>
+        <a href="Partner With Us.dc.html" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Partners</a>
+        <a href="Barcliff Homepage V2.dc.html#story" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Stories</a>
+        <a href="Barcliff Homepage V2.dc.html#contact" style="font-size:14.5px;font-weight:500;color:#17201D;text-decoration:none;padding:10px 10px" style-hover="color:#8F6E20" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Contact</a>
+        <a href="Find Help.dc.html" aria-current="page" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;margin-left:10px;background:#0F2A4D;color:#FFFFFF;font-weight:600;font-size:14.5px;text-decoration:none;border-radius:4px" style-focus="outline:3px solid #8F6E20;outline-offset:2px">Find Help</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ mobileNav }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+        <a href="#connect" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;background:#0F2A4D;color:#FFFFFF;font-weight:600;font-size:14px;text-decoration:none;border-radius:4px;white-space:nowrap" style-hover="background:#081C36" style-focus="outline:3px solid #8F6E20;outline-offset:2px">Go to form</a>
+        <button type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpenAria }}" style="min-height:44px;padding:0 14px;display:flex;align-items:center;background:transparent;border:1px solid rgba(23,32,29,0.4);border-radius:4px;cursor:pointer;color:#17201D;font-weight:600;font-size:14px" style-hover="background:rgba(23,32,29,0.06)" style-focus="outline:3px solid #8F6E20;outline-offset:2px">{{ menuLabel }}</button>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile navigation" style="position:absolute;top:68px;left:0;right:0;background:#F9F6EF;border-bottom:1px solid rgba(23,32,29,0.2);box-shadow:0 16px 32px rgba(23,32,29,0.12);padding:10px 20px 22px;display:flex;flex-direction:column">
+      <a href="Barcliff Homepage V2.dc.html" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none;border-bottom:1px solid rgba(23,32,29,0.1)" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Home</a>
+      <a href="Services.dc.html" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none;border-bottom:1px solid rgba(23,32,29,0.1)" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Services</a>
+      <a href="Level Seven.dc.html" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none;border-bottom:1px solid rgba(23,32,29,0.1)" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Level Seven</a>
+      <a href="Partner With Us.dc.html" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none;border-bottom:1px solid rgba(23,32,29,0.1)" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Partners</a>
+      <a href="Barcliff Homepage V2.dc.html#contact" style="display:flex;align-items:center;min-height:48px;font-size:17px;font-weight:600;color:#17201D;text-decoration:none" style-focus="outline:2px solid #0F2A4D;outline-offset:2px">Contact</a>
+    </nav>
+  </sc-if>
+</header>
+
+<section data-screen-label="Find Help hero">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(52px,7vw,88px) clamp(20px,5vw,48px) 0">
+    <p style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8F6E20">Find help</p>
+    <h1 style="margin:14px 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(34px,4.8vw,58px);line-height:1.12;letter-spacing:-0.01em;color:#17201D;max-width:20ch;text-wrap:pretty">You don&rsquo;t have to have it all <em style="font-style:italic;color:#8F6E20">figured out.</em></h1>
+    <p style="margin:20px 0 0;font-size:clamp(16px,1.9vw,18px);line-height:1.65;color:rgba(23,32,29,0.75);max-width:54ch;text-wrap:pretty">Pick whatever feels closest to what you need &mdash; or skip straight to the form. A real person reads every message. No judgment, no complicated intake.</p>
+    <p style="margin:26px 0 0;padding:16px 0 18px;border-top:1px solid rgba(23,32,29,0.25);border-bottom:1px solid rgba(23,32,29,0.25);font-size:14.5px;line-height:1.6;color:rgba(23,32,29,0.8);max-width:640px"><strong style="color:#17201D">In a crisis?</strong> If you are in immediate danger, call 911. For a mental-health or substance-use crisis in the U.S., call or text 988. Barcliff is not an emergency service.</p>
+  </div>
+</section>
+
+<section id="choose" data-screen-label="Choose your next step">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(20px,5vw,48px)">
+    <h2 style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(23px,2.8vw,30px);line-height:1.2;color:#17201D">What feels closest right now?</h2>
+    <div style="margin-top:26px;border-bottom:1px solid rgba(23,32,29,0.22)">
+      <button type="button" onClick="{{ chooseWork }}" aria-pressed="{{ workPressed }}" style="width:100%;display:grid;grid-template-columns:minmax(44px,70px) 1fr auto;gap:clamp(12px,2.5vw,28px);align-items:baseline;padding:20px 8px;background:{{ workBg }};border:none;border-top:1px solid rgba(23,32,29,0.22);cursor:pointer;text-align:left;transition:background .15s" style-hover="background:rgba(15,42,77,0.05)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:13.5px;font-weight:600;color:#8F6E20">01</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(19px,2.2vw,24px);color:#17201D">Find work</span><span style="display:block;margin-top:4px;font-size:14.5px;line-height:1.55;color:rgba(23,32,29,0.65)">Jobs, workforce programs, and career resources</span></span>
+        <span style="font-size:19px;color:#0F2A4D" aria-hidden="true">{{ workMark }}</span>
+      </button>
+      <button type="button" onClick="{{ chooseHousing }}" aria-pressed="{{ housingPressed }}" style="width:100%;display:grid;grid-template-columns:minmax(44px,70px) 1fr auto;gap:clamp(12px,2.5vw,28px);align-items:baseline;padding:20px 8px;background:{{ housingBg }};border:none;border-top:1px solid rgba(23,32,29,0.22);cursor:pointer;text-align:left;transition:background .15s" style-hover="background:rgba(15,42,77,0.05)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:13.5px;font-weight:600;color:#8F6E20">02</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(19px,2.2vw,24px);color:#17201D">Housing support</span><span style="display:block;margin-top:4px;font-size:14.5px;line-height:1.55;color:rgba(23,32,29,0.65)">Housing connections and next steps toward stability</span></span>
+        <span style="font-size:19px;color:#0F2A4D" aria-hidden="true">{{ housingMark }}</span>
+      </button>
+      <button type="button" onClick="{{ chooseMentorship }}" aria-pressed="{{ mentorshipPressed }}" style="width:100%;display:grid;grid-template-columns:minmax(44px,70px) 1fr auto;gap:clamp(12px,2.5vw,28px);align-items:baseline;padding:20px 8px;background:{{ mentorshipBg }};border:none;border-top:1px solid rgba(23,32,29,0.22);cursor:pointer;text-align:left;transition:background .15s" style-hover="background:rgba(15,42,77,0.05)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:13.5px;font-weight:600;color:#8F6E20">03</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(19px,2.2vw,24px);color:#17201D">Level Seven mentorship</span><span style="display:block;margin-top:4px;font-size:14.5px;line-height:1.55;color:rgba(23,32,29,0.65)">A mentor, life skills, and a community choosing a better path</span></span>
+        <span style="font-size:19px;color:#0F2A4D" aria-hidden="true">{{ mentorshipMark }}</span>
+      </button>
+      <button type="button" onClick="{{ chooseRecovery }}" aria-pressed="{{ recoveryPressed }}" style="width:100%;display:grid;grid-template-columns:minmax(44px,70px) 1fr auto;gap:clamp(12px,2.5vw,28px);align-items:baseline;padding:20px 8px;background:{{ recoveryBg }};border:none;border-top:1px solid rgba(23,32,29,0.22);cursor:pointer;text-align:left;transition:background .15s" style-hover="background:rgba(15,42,77,0.05)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:13.5px;font-weight:600;color:#8F6E20">04</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(19px,2.2vw,24px);color:#17201D">Recovery or mental-health resources</span><span style="display:block;margin-top:4px;font-size:14.5px;line-height:1.55;color:rgba(23,32,29,0.65)">Help finding trusted local support &mdash; we navigate with you</span></span>
+        <span style="font-size:19px;color:#0F2A4D" aria-hidden="true">{{ recoveryMark }}</span>
+      </button>
+      <button type="button" onClick="{{ chooseCommunity }}" aria-pressed="{{ communityPressed }}" style="width:100%;display:grid;grid-template-columns:minmax(44px,70px) 1fr auto;gap:clamp(12px,2.5vw,28px);align-items:baseline;padding:20px 8px;background:{{ communityBg }};border:none;border-top:1px solid rgba(23,32,29,0.22);cursor:pointer;text-align:left;transition:background .15s" style-hover="background:rgba(15,42,77,0.05)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:13.5px;font-weight:600;color:#8F6E20">05</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(19px,2.2vw,24px);color:#17201D">Community resources</span><span style="display:block;margin-top:4px;font-size:14.5px;line-height:1.55;color:rgba(23,32,29,0.65)">Local programs, support networks, and everyday resources</span></span>
+        <span style="font-size:19px;color:#0F2A4D" aria-hidden="true">{{ communityMark }}</span>
+      </button>
+      <button type="button" onClick="{{ chooseNotsure }}" aria-pressed="{{ notsurePressed }}" style="width:100%;display:grid;grid-template-columns:minmax(44px,70px) 1fr auto;gap:clamp(12px,2.5vw,28px);align-items:baseline;padding:20px 8px;background:{{ notsureBg }};border:none;border-top:1px solid rgba(23,32,29,0.22);cursor:pointer;text-align:left;transition:background .15s" style-hover="background:rgba(15,42,77,0.05)" style-focus="outline:3px solid #0F2A4D;outline-offset:-3px">
+        <span style="font-size:13.5px;font-weight:600;color:#8F6E20">06</span>
+        <span><span style="display:block;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(19px,2.2vw,24px);color:#17201D">Not sure yet</span><span style="display:block;margin-top:4px;font-size:14.5px;line-height:1.55;color:rgba(23,32,29,0.65)">That&rsquo;s okay. Start the conversation and we&rsquo;ll figure it out together</span></span>
+        <span style="font-size:19px;color:#0F2A4D" aria-hidden="true">{{ notsureMark }}</span>
+      </button>
+    </div>
+    <sc-if value="{{ hasNeed }}" hint-placeholder-val="{{ false }}">
+      <div id="next-steps" style="margin-top:26px;background:#0F2A4D;border-radius:6px;padding:clamp(26px,4vw,40px);scroll-margin-top:84px">
+        <p style="margin:0;font-size:12.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#D2A64A">You chose &mdash; {{ needTitle }}</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(22px,3vw,40px);margin-top:22px">
+          <div>
+            <p style="margin:0 0 10px;font-family:'Source Serif 4',serif;font-weight:600;font-size:17px;color:#FFFFFF">What we can connect you to</p>
+            <sc-for list="{{ needConnect }}" as="item" hint-placeholder-count="3">
+              <p style="margin:0 0 8px;padding-left:14px;border-left:2px solid #D2A64A;font-size:14px;line-height:1.55;color:rgba(255,255,255,0.88)">{{ item }}</p>
+            </sc-for>
+          </div>
+          <div>
+            <p style="margin:0 0 10px;font-family:'Source Serif 4',serif;font-weight:600;font-size:17px;color:#FFFFFF">What happens next</p>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:rgba(255,255,255,0.88)">{{ needNext }}</p>
+          </div>
+          <div>
+            <p style="margin:0 0 10px;font-family:'Source Serif 4',serif;font-weight:600;font-size:17px;color:#FFFFFF">What we don&rsquo;t provide</p>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:rgba(255,255,255,0.88)">{{ needNot }}</p>
+          </div>
+        </div>
+        <a href="#connect" style="display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 26px;margin-top:24px;background:#F9F6EF;color:#0F2A4D;font-weight:700;font-size:15.5px;text-decoration:none;border-radius:4px;transition:background .15s" style-hover="background:#FFFFFF" style-active="transform:translateY(1px)" style-focus="outline:3px solid #D2A64A;outline-offset:3px">Continue to the form <span aria-hidden="true">&darr;</span></a>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<section id="connect" data-screen-label="Contact form" style="background:#FFFFFF;border-top:1px solid rgba(23,32,29,0.12);scroll-margin-top:72px">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(52px,7vw,88px) clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,5vw,72px)">
+    <div style="max-width:380px">
+      <h2 style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(26px,3.2vw,36px);line-height:1.2;color:#17201D;text-wrap:pretty">Tell us a little &mdash; we&rsquo;ll take it from there</h2>
+      <p style="margin:18px 0 0;font-size:15.5px;line-height:1.65;color:rgba(23,32,29,0.72)">Share only what you&rsquo;re comfortable with. We never ask about criminal history, diagnoses, or anything you&rsquo;re not ready to talk about.</p>
+      <p style="margin:22px 0 0;padding-top:18px;border-top:1px solid rgba(23,32,29,0.2);font-size:13.5px;line-height:1.6;color:rgba(23,32,29,0.65)">If you are in immediate danger, call 911. For a mental-health or substance-use crisis in the U.S., call or text 988.</p>
+    </div>
+    <div style="grid-column:span 1;min-width:min(100%,300px)">
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600;color:#17201D">First name
+            <input type="text" autoComplete="given-name" placeholder="Just your first name is fine" style="min-height:48px;padding:0 14px;border:1px solid rgba(23,32,29,0.4);border-radius:4px;font-size:16px;background:#FFFFFF;color:#17201D">
+          </label>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:18px">
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600;color:#17201D">Preferred contact method
+              <select style="min-height:48px;padding:0 12px;border:1px solid rgba(23,32,29,0.4);border-radius:4px;font-size:16px;background:#FFFFFF;color:#17201D">
+                <option>Phone call</option>
+                <option>Text message</option>
+                <option>Email</option>
+              </select>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600;color:#17201D">Phone or email
+              <input type="text" autoComplete="email" placeholder="How can we reach you?" style="min-height:48px;padding:0 14px;border:1px solid rgba(23,32,29,0.4);border-radius:4px;font-size:16px;background:#FFFFFF;color:#17201D">
+            </label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600;color:#17201D">What do you need help with?
+            <select value="{{ needValue }}" onChange="{{ onNeedChange }}" style="min-height:48px;padding:0 12px;border:1px solid rgba(23,32,29,0.4);border-radius:4px;font-size:16px;background:#FFFFFF;color:#17201D">
+              <option value="work">Finding work</option>
+              <option value="housing">Housing support</option>
+              <option value="mentorship">Level Seven mentorship</option>
+              <option value="recovery">Recovery or mental-health resources</option>
+              <option value="community">Community resources</option>
+              <option value="notsure">Not sure yet</option>
+            </select>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:14px;font-weight:600;color:#17201D">Message <span style="font-weight:400;color:rgba(23,32,29,0.55)">(optional)</span>
+            <textarea rows="4" placeholder="Share as much or as little as you like." style="padding:12px 14px;border:1px solid rgba(23,32,29,0.4);border-radius:4px;font-size:16px;line-height:1.5;background:#FFFFFF;color:#17201D;resize:vertical"></textarea>
+          </label>
+          <label style="display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.55;color:rgba(23,32,29,0.78);cursor:pointer">
+            <input type="checkbox" style="width:20px;height:20px;margin-top:1px;accent-color:#0F2A4D;flex:none">
+            <span>I agree to be contacted about my request. My information is only used to respond to me.</span>
+          </label>
+          <button type="button" onClick="{{ submitForm }}" style="min-height:50px;padding:0 28px;background:#0F2A4D;color:#FFFFFF;border:none;border-radius:4px;font-weight:700;font-size:16px;cursor:pointer;transition:background .15s" style-hover="background:#081C36" style-active="transform:translateY(1px)" style-focus="outline:3px solid #8F6E20;outline-offset:2px">Send message</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:26px;background:#F9F6EF;border:1px solid #0F2A4D;border-radius:6px;display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:21px;color:#0F2A4D">Thank you &mdash; message received.</p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:rgba(23,32,29,0.78)">This is a prototype, so nothing was actually sent. On the live site, a real person would read your message and reach out within two business days.</p>
+          <button type="button" onClick="{{ resetForm }}" style="align-self:flex-start;min-height:44px;padding:0 20px;margin-top:6px;background:transparent;border:1px solid #0F2A4D;border-radius:4px;font-weight:600;font-size:14px;color:#0F2A4D;cursor:pointer" style-hover="background:rgba(15,42,77,0.06)" style-focus="outline:3px solid #8F6E20;outline-offset:2px">Send another message</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="background:#071629;color:#F9F6EF">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(48px,7vw,72px) clamp(20px,5vw,48px) 36px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(32px,5vw,64px)">
+      <div style="max-width:360px">
+        <p style="margin:0;font-family:'Source Serif 4',serif;font-weight:600;font-size:19px;color:#F9F6EF">Barcliff Impact Solutions</p>
+        <p style="margin:14px 0 0;font-size:14.5px;line-height:1.65;color:rgba(249,246,239,0.75)">We connect people with jobs, housing, trusted services, and community resources &mdash; and walk alongside them as they move forward.</p>
+        <p style="margin:16px 0 0;font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:#D2A64A">Level Seven &mdash; Live a Square Life.</p>
+      </div>
+      <div>
+        <p style="margin:0 0 12px;font-size:12.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(249,246,239,0.55)">Explore</p>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <a href="Barcliff Homepage V2.dc.html" style="color:rgba(249,246,239,0.85);text-decoration:none;font-size:14.5px;padding:7px 0" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Home</a>
+          <a href="Services.dc.html" style="color:rgba(249,246,239,0.85);text-decoration:none;font-size:14.5px;padding:7px 0" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Services</a>
+          <a href="Level Seven.dc.html" style="color:rgba(249,246,239,0.85);text-decoration:none;font-size:14.5px;padding:7px 0" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Level Seven</a>
+          <a href="Partner With Us.dc.html" style="color:rgba(249,246,239,0.85);text-decoration:none;font-size:14.5px;padding:7px 0" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Partner With Us</a>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 12px;font-size:12.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(249,246,239,0.55)">Contact</p>
+        <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(249,246,239,0.85)">Contact details and service area coming soon.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;margin-top:44px;padding-top:24px;border-top:1px solid rgba(249,246,239,0.18)">
+      <p style="margin:0;font-size:13px;color:rgba(249,246,239,0.55)">&copy; 2026 Barcliff Impact Solutions &middot; Prototype</p>
+      <div style="display:flex;gap:24px">
+        <a href="Barcliff Homepage V2.dc.html" style="color:rgba(249,246,239,0.7);font-size:13px;text-decoration:underline;text-underline-offset:3px" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Privacy</a>
+        <a href="Barcliff Homepage V2.dc.html" style="color:rgba(249,246,239,0.7);font-size:13px;text-decoration:underline;text-underline-offset:3px" style-hover="color:#D2A64A" style-focus="outline:2px solid #D2A64A;outline-offset:2px">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;forceMobileNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Prototype preview&quot;}}">
+class Component extends DCLogic {
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, menuOpen: false, need: null, submitted: false };
+  componentDidMount() {
+    this._onResize = () => { const vw = window.innerWidth; if (Math.abs(vw - this.state.vw) > 4) this.setState({ vw }); };
+    window.addEventListener('resize', this._onResize);
+    const h = decodeURIComponent((location.hash || '').slice(1));
+    if (h) setTimeout(() => { const el = document.getElementById(h); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80 }); }, 400);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+  renderVals() {
+    const mobile = (this.props.forceMobileNav ?? false) || this.state.vw < 900;
+    const menuOpen = mobile && this.state.menuOpen;
+    const needs = {
+      work: { title: 'Find work', connect: ['Employers open to giving people a real shot', 'Workforce programs and job-readiness support', 'Career resources like resume and interview help'], next: 'We set up a short conversation, learn what kind of work fits you, and make warm introductions to employers or programs.', not: 'We are not a staffing agency and cannot guarantee a job — we connect you and stay involved as you move forward.' },
+      housing: { title: 'Housing support', connect: ['Housing connections through trusted partners', 'Property solutions and maintenance coordination', 'Guidance on realistic next steps toward stability'], next: 'We talk through your situation, then connect you with housing partners and programs that fit.', not: 'We are not a housing authority or a landlord and cannot guarantee placement — we help you find and reach the right doors.' },
+      mentorship: { title: 'Level Seven mentorship', connect: ['A consistent Level Seven mentor', 'Education, sports training, and life-skills programming', 'A community of people choosing a better path'], next: 'We introduce you to the program, answer your questions, and match you with a mentor.', not: 'Level Seven is mentorship and resource navigation — not clinical treatment, mental-health care, or emergency services.' },
+      recovery: { title: 'Recovery or mental-health resources', connect: ['Trusted local recovery resources', 'Mental-health support navigation', 'People who will walk alongside you, not judge you'], next: 'We listen first. Then we help you connect with the right local providers and resources, at your pace.', not: 'We do not provide clinical treatment, mental-health care, or emergency services. In a crisis, call or text 988.' },
+      community: { title: 'Community resources', connect: ['Local programs and support networks', 'Community organizations that can help', 'Practical everyday resources'], next: 'We help you find the right local programs and make warm introductions so you are not starting cold.', not: 'We are a connector — the services themselves come from partner organizations, and availability varies.' },
+      notsure: { title: 'Not sure yet', connect: ['A calm, no-pressure conversation', 'Help sorting out what would help most', 'Whatever next step feels right to you'], next: 'Send the form with whatever you are comfortable sharing. A real person reads it and reaches out.', not: 'No commitments, no complicated intake, no judgment. You decide what happens next.' }
+    };
+    const need = this.state.need;
+    const info = need ? needs[need] : null;
+    const vals = {
+      desktopNav: !mobile, mobileNav: mobile, menuOpen,
+      menuOpenAria: menuOpen ? 'true' : 'false',
+      menuLabel: menuOpen ? 'Close' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      hasNeed: !!info,
+      needTitle: info ? info.title : '',
+      needConnect: info ? info.connect : [],
+      needNext: info ? info.next : '',
+      needNot: info ? info.not : '',
+      needValue: need ?? 'notsure',
+      onNeedChange: (e) => this.setState({ need: e.target.value, submitted: false }),
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      submitForm: () => this.setState({ submitted: true }),
+      resetForm: () => this.setState({ submitted: false })
+    };
+    Object.keys(needs).forEach(k => {
+      const sel = need === k;
+      vals[k + 'Bg'] = sel ? 'rgba(15,42,77,0.08)' : 'transparent';
+      vals[k + 'Mark'] = sel ? '\u2713' : '\u2192';
+      vals[k + 'Pressed'] = sel ? 'true' : 'false';
+      const cap = k.charAt(0).toUpperCase() + k.slice(1);
+      vals['choose' + cap] = () => {
+        this.setState({ need: k, submitted: false });
+        setTimeout(() => { const el = document.getElementById('next-steps'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' }); }, 60);
+      };
+    });
+    return vals;
+  }
+}
+</script>
+</body>
+</html>

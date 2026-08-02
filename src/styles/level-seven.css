@@ -1,0 +1,465 @@
+/* Level Seven page — converted from Claude Design "Level Seven.dc.html"
+   Page-specific rules only; shared chrome and tokens live in src/style.css. */
+
+/* ---------- Active nav state ---------- */
+
+.nav-desktop a[aria-current='page'],
+.nav-mobile a[aria-current='page'] {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ---------- Hero ---------- */
+
+.l7-hero {
+  background: var(--dark);
+}
+
+.l7-hero__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+
+.l7-hero__title {
+  margin: 18px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  max-width: 16ch;
+  text-wrap: pretty;
+}
+
+.l7-hero__title em {
+  font-style: italic;
+  color: var(--gold-bright);
+}
+
+.l7-hero__lede {
+  margin: 22px 0 0;
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.65;
+  color: rgba(200, 205, 211, 0.95);
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+
+.l7-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.l7-hero__actions .btn-gold {
+  font-size: 16px;
+}
+
+.l7-link-light {
+  color: var(--silver);
+}
+
+.l7-link-light:hover {
+  color: var(--gold-bright);
+}
+
+.l7-link-light:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+.l7-fineprint {
+  margin: 28px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(210, 166, 74, 0.3);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(200, 205, 211, 0.75);
+  max-width: 56ch;
+}
+
+.l7-fineprint--wide {
+  max-width: 64ch;
+}
+
+.l7-hero__media {
+  display: flex;
+  justify-content: center;
+}
+
+.l7-hero__media img {
+  width: min(100%, 380px);
+  height: auto;
+  border: 1px solid rgba(210, 166, 74, 0.45);
+  display: block;
+}
+
+/* ---------- Manifesto ---------- */
+
+.l7-manifesto__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 48px);
+}
+
+.l7-manifesto__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(24px, 4vw, 64px);
+  padding-top: 26px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.l7-manifesto__copy {
+  grid-column: span 2;
+  min-width: min(100%, 400px);
+}
+
+.l7-manifesto__lead {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 40ch;
+  text-wrap: pretty;
+}
+
+.l7-manifesto__body {
+  margin: 24px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-75);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* ---------- Values ---------- */
+
+.l7-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  margin-top: clamp(48px, 7vw, 80px);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.l7-value {
+  padding: clamp(24px, 3vw, 40px) clamp(8px, 2vw, 28px);
+}
+
+.l7-value + .l7-value {
+  border-left: 1px solid var(--line);
+}
+
+.l7-value__num {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.l7-value__name {
+  margin: 6px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(26px, 3vw, 36px);
+  color: var(--ink);
+}
+
+.l7-value__desc {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(23, 32, 29, 0.65);
+}
+
+/* ---------- Programs ---------- */
+
+.l7-programs__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px);
+}
+
+.l7-programs .section-title {
+  margin: 0;
+  font-size: clamp(28px, 3.6vw, 42px);
+}
+
+.l7-programs__intro {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-70);
+  max-width: 58ch;
+}
+
+.l7-program-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 0 clamp(32px, 5vw, 72px);
+  margin-top: 36px;
+}
+
+.l7-program {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 16px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(23, 32, 29, 0.2);
+}
+
+.l7-program__num {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--gold);
+  padding-top: 3px;
+}
+
+.l7-program__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.l7-program__desc {
+  margin: 5px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-68);
+}
+
+/* ---------- Connect / Grow / Thrive ---------- */
+
+.l7-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  margin-top: clamp(44px, 6vw, 64px);
+  padding-top: 24px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.l7-step__label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.l7-step__desc {
+  margin: 6px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-70);
+}
+
+/* ---------- Who it is for / What to expect / FAQ ---------- */
+
+.l7-who__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 110px) clamp(20px, 5vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: clamp(40px, 6vw, 90px);
+}
+
+.l7-h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(26px, 3.2vw, 36px);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.l7-h2--stacked {
+  margin-top: clamp(36px, 5vw, 56px);
+}
+
+.l7-who__lead {
+  margin: 20px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-75);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+.l7-who__quote {
+  margin: 18px 0 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--navy);
+  max-width: 44ch;
+}
+
+.l7-expect {
+  margin-top: 22px;
+}
+
+.l7-expect__item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(23, 32, 29, 0.2);
+}
+
+.l7-expect__item:last-child {
+  border-bottom: 1px solid rgba(23, 32, 29, 0.2);
+}
+
+.l7-expect__num {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--gold);
+  padding-top: 2px;
+}
+
+.l7-expect__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 15.5px;
+  color: var(--ink);
+}
+
+.l7-expect__desc {
+  margin: 4px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-68);
+}
+
+.l7-faq {
+  margin-top: 22px;
+}
+
+.l7-faq__item {
+  border-top: 1px solid rgba(23, 32, 29, 0.2);
+}
+
+.l7-faq__item:last-child {
+  border-bottom: 1px solid rgba(23, 32, 29, 0.2);
+}
+
+.l7-faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 56px;
+  padding: 14px 4px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.l7-faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.l7-faq__q:hover {
+  color: var(--gold);
+}
+
+.l7-faq__q:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: -2px;
+}
+
+.l7-faq__sign {
+  font-size: 20px;
+  color: var(--gold);
+  flex: none;
+}
+
+.l7-faq__sign::after {
+  content: '+';
+}
+
+.l7-faq__item[open] .l7-faq__sign::after {
+  content: '\2212';
+}
+
+.l7-faq__a {
+  margin: 0;
+  padding: 0 4px 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(23, 32, 29, 0.72);
+  max-width: 60ch;
+}
+
+.l7-faq__a a {
+  font-weight: 600;
+}
+
+/* ---------- Get connected ---------- */
+
+.l7-cta {
+  background: var(--dark);
+}
+
+.l7-cta__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px);
+}
+
+.l7-cta__copy {
+  max-width: 680px;
+}
+
+.l7-cta__title {
+  margin: 14px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(28px, 3.8vw, 44px);
+  line-height: 1.15;
+  color: var(--cream);
+  text-wrap: pretty;
+}
+
+.l7-cta__desc {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(200, 205, 211, 0.95);
+  max-width: 54ch;
+}
+
+.l7-cta .btn-gold {
+  margin-top: 28px;
+  font-size: 16px;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 899px) {
+  .l7-manifesto__copy {
+    grid-column: auto;
+  }
+
+  .l7-value + .l7-value {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+}

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Find Help — Barcliff Impact Solutions</title>
+    <meta name="description" content="Jobs, housing, resources, or a mentor — find your next step with Barcliff Impact Solutions." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Public+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <div class="utility-line">
+      <div class="utility-line__inner">
+        <p>A neighborhood resource for people and partners</p>
+        <p>In a crisis? Call 911 &middot; Call or text 988</p>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="/" class="brand">
+          <span>Barcliff Impact Solutions</span>
+        </a>
+        <nav class="nav-desktop" aria-label="Main navigation">
+          <a href="/services.html">Services</a>
+          <a href="/level-seven.html">Level Seven</a>
+          <a href="/partner-with-us.html">Partners</a>
+          <a href="/#story">Stories</a>
+          <a href="/#contact">Contact</a>
+          <a href="/find-help.html" class="btn-cta" aria-current="page">Find Help</a>
+        </nav>
+        <div class="nav-mobile-bar">
+          <a href="#connect" class="btn-cta">Go to form</a>
+          <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+        </div>
+      </div>
+      <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile navigation">
+        <a href="/services.html">Services</a>
+        <a href="/level-seven.html">Level Seven</a>
+        <a href="/partner-with-us.html">Partners</a>
+        <a href="/#story">Stories</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="fh-hero" aria-label="Find help introduction">
+        <div class="fh-hero__inner">
+          <p class="eyebrow eyebrow--gold">Find help</p>
+          <h1 class="fh-hero__title">You don&rsquo;t have to have it all <em>figured out.</em></h1>
+          <p class="fh-hero__lede">
+            Pick whatever feels closest to what you need &mdash; or skip straight to the form. A real person reads
+            every message. No judgment, no complicated intake.
+          </p>
+          <p class="fh-crisis">
+            <strong>In a crisis?</strong> If you are in immediate danger, call 911. For a mental-health or
+            substance-use crisis in the U.S., call or text 988. Barcliff is not an emergency service.
+          </p>
+        </div>
+      </section>
+
+      <section id="choose" class="fh-choose">
+        <div class="fh-choose__inner">
+          <h2 class="fh-choose__title">What feels closest right now?</h2>
+
+          <div class="fh-choices">
+            <input class="fh-choice__input" type="radio" name="fh-need" id="fh-need-work" />
+            <label class="fh-choice" for="fh-need-work">
+              <span class="fh-choice__num">01</span>
+              <span>
+                <span class="fh-choice__title">Find work</span>
+                <span class="fh-choice__desc">Jobs, workforce programs, and career resources</span>
+              </span>
+              <span class="fh-choice__mark" aria-hidden="true"></span>
+            </label>
+
+            <input class="fh-choice__input" type="radio" name="fh-need" id="fh-need-housing" />
+            <label class="fh-choice" for="fh-need-housing">
+              <span class="fh-choice__num">02</span>
+              <span>
+                <span class="fh-choice__title">Housing support</span>
+                <span class="fh-choice__desc">Housing connections and next steps toward stability</span>
+              </span>
+              <span class="fh-choice__mark" aria-hidden="true"></span>
+            </label>
+
+            <input class="fh-choice__input" type="radio" name="fh-need" id="fh-need-mentorship" />
+            <label class="fh-choice" for="fh-need-mentorship">
+              <span class="fh-choice__num">03</span>
+              <span>
+                <span class="fh-choice__title">Level Seven mentorship</span>
+                <span class="fh-choice__desc">A mentor, life skills, and a community choosing a better path</span>
+              </span>
+              <span class="fh-choice__mark" aria-hidden="true"></span>
+            </label>
+
+            <input class="fh-choice__input" type="radio" name="fh-need" id="fh-need-recovery" />
+            <label class="fh-choice" for="fh-need-recovery">
+              <span class="fh-choice__num">04</span>
+              <span>
+                <span class="fh-choice__title">Recovery or mental-health resources</span>
+                <span class="fh-choice__desc">Help finding trusted local support &mdash; we navigate with you</span>
+              </span>
+              <span class="fh-choice__mark" aria-hidden="true"></span>
+            </label>
+
+            <input class="fh-choice__input" type="radio" name="fh-need" id="fh-need-community" />
+            <label class="fh-choice" for="fh-need-community">
+              <span class="fh-choice__num">05</span>
+              <span>
+                <span class="fh-choice__title">Community resources</span>
+                <span class="fh-choice__desc">Local programs, support networks, and everyday resources</span>
+              </span>
+              <span class="fh-choice__mark" aria-hidden="true"></span>
+            </label>
+
+            <input class="fh-choice__input" type="radio" name="fh-need" id="fh-need-notsure" />
+            <label class="fh-choice" for="fh-need-notsure">
+              <span class="fh-choice__num">06</span>
+              <span>
+                <span class="fh-choice__title">Not sure yet</span>
+                <span class="fh-choice__desc">That&rsquo;s okay. Start the conversation and we&rsquo;ll figure it out together</span>
+              </span>
+              <span class="fh-choice__mark" aria-hidden="true"></span>
+            </label>
+
+            <div class="fh-next fh-next--work">
+              <p class="fh-next__eyebrow">You chose &mdash; Find work</p>
+              <div class="fh-next__grid">
+                <div>
+                  <p class="fh-next__label">What we can connect you to</p>
+                  <p class="fh-next__item">Employers open to giving people a real shot</p>
+                  <p class="fh-next__item">Workforce programs and job-readiness support</p>
+                  <p class="fh-next__item">Career resources like resume and interview help</p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What happens next</p>
+                  <p class="fh-next__text">
+                    We set up a short conversation, learn what kind of work fits you, and make warm introductions to
+                    employers or programs.
+                  </p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What we don&rsquo;t provide</p>
+                  <p class="fh-next__text">
+                    We are not a staffing agency and cannot guarantee a job &mdash; we connect you and stay involved
+                    as you move forward.
+                  </p>
+                </div>
+              </div>
+              <a href="#connect" class="fh-next__cta">Continue to the form <span aria-hidden="true">&darr;</span></a>
+            </div>
+
+            <div class="fh-next fh-next--housing">
+              <p class="fh-next__eyebrow">You chose &mdash; Housing support</p>
+              <div class="fh-next__grid">
+                <div>
+                  <p class="fh-next__label">What we can connect you to</p>
+                  <p class="fh-next__item">Housing connections through trusted partners</p>
+                  <p class="fh-next__item">Property solutions and maintenance coordination</p>
+                  <p class="fh-next__item">Guidance on realistic next steps toward stability</p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What happens next</p>
+                  <p class="fh-next__text">
+                    We talk through your situation, then connect you with housing partners and programs that fit.
+                  </p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What we don&rsquo;t provide</p>
+                  <p class="fh-next__text">
+                    We are not a housing authority or a landlord and cannot guarantee placement &mdash; we help you
+                    find and reach the right doors.
+                  </p>
+                </div>
+              </div>
+              <a href="#connect" class="fh-next__cta">Continue to the form <span aria-hidden="true">&darr;</span></a>
+            </div>
+
+            <div class="fh-next fh-next--mentorship">
+              <p class="fh-next__eyebrow">You chose &mdash; Level Seven mentorship</p>
+              <div class="fh-next__grid">
+                <div>
+                  <p class="fh-next__label">What we can connect you to</p>
+                  <p class="fh-next__item">A consistent Level Seven mentor</p>
+                  <p class="fh-next__item">Education, sports training, and life-skills programming</p>
+                  <p class="fh-next__item">A community of people choosing a better path</p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What happens next</p>
+                  <p class="fh-next__text">
+                    We introduce you to the program, answer your questions, and match you with a mentor.
+                  </p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What we don&rsquo;t provide</p>
+                  <p class="fh-next__text">
+                    Level Seven is mentorship and resource navigation &mdash; not clinical treatment, mental-health
+                    care, or emergency services.
+                  </p>
+                </div>
+              </div>
+              <a href="#connect" class="fh-next__cta">Continue to the form <span aria-hidden="true">&darr;</span></a>
+            </div>
+
+            <div class="fh-next fh-next--recovery">
+              <p class="fh-next__eyebrow">You chose &mdash; Recovery or mental-health resources</p>
+              <div class="fh-next__grid">
+                <div>
+                  <p class="fh-next__label">What we can connect you to</p>
+                  <p class="fh-next__item">Trusted local recovery resources</p>
+                  <p class="fh-next__item">Mental-health support navigation</p>
+                  <p class="fh-next__item">People who will walk alongside you, not judge you</p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What happens next</p>
+                  <p class="fh-next__text">
+                    We listen first. Then we help you connect with the right local providers and resources, at your
+                    pace.
+                  </p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What we don&rsquo;t provide</p>
+                  <p class="fh-next__text">
+                    We do not provide clinical treatment, mental-health care, or emergency services. In a crisis,
+                    call or text 988.
+                  </p>
+                </div>
+              </div>
+              <a href="#connect" class="fh-next__cta">Continue to the form <span aria-hidden="true">&darr;</span></a>
+            </div>
+
+            <div class="fh-next fh-next--community">
+              <p class="fh-next__eyebrow">You chose &mdash; Community resources</p>
+              <div class="fh-next__grid">
+                <div>
+                  <p class="fh-next__label">What we can connect you to</p>
+                  <p class="fh-next__item">Local programs and support networks</p>
+                  <p class="fh-next__item">Community organizations that can help</p>
+                  <p class="fh-next__item">Practical everyday resources</p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What happens next</p>
+                  <p class="fh-next__text">
+                    We help you find the right local programs and make warm introductions so you are not starting
+                    cold.
+                  </p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What we don&rsquo;t provide</p>
+                  <p class="fh-next__text">
+                    We are a connector &mdash; the services themselves come from partner organizations, and
+                    availability varies.
+                  </p>
+                </div>
+              </div>
+              <a href="#connect" class="fh-next__cta">Continue to the form <span aria-hidden="true">&darr;</span></a>
+            </div>
+
+            <div class="fh-next fh-next--notsure">
+              <p class="fh-next__eyebrow">You chose &mdash; Not sure yet</p>
+              <div class="fh-next__grid">
+                <div>
+                  <p class="fh-next__label">What we can connect you to</p>
+                  <p class="fh-next__item">A calm, no-pressure conversation</p>
+                  <p class="fh-next__item">Help sorting out what would help most</p>
+                  <p class="fh-next__item">Whatever next step feels right to you</p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What happens next</p>
+                  <p class="fh-next__text">
+                    Send the form with whatever you are comfortable sharing. A real person reads it and reaches out.
+                  </p>
+                </div>
+                <div>
+                  <p class="fh-next__label">What we don&rsquo;t provide</p>
+                  <p class="fh-next__text">
+                    No commitments, no complicated intake, no judgment. You decide what happens next.
+                  </p>
+                </div>
+              </div>
+              <a href="#connect" class="fh-next__cta">Continue to the form <span aria-hidden="true">&darr;</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="connect" class="fh-connect" aria-labelledby="fh-connect-title">
+        <div class="fh-connect__inner">
+          <div class="fh-connect__intro">
+            <h2 class="fh-connect__title" id="fh-connect-title">Tell us a little &mdash; we&rsquo;ll take it from there</h2>
+            <p class="fh-connect__note">
+              Share only what you&rsquo;re comfortable with. We never ask about criminal history, diagnoses, or
+              anything you&rsquo;re not ready to talk about.
+            </p>
+            <p class="fh-connect__crisis">
+              If you are in immediate danger, call 911. For a mental-health or substance-use crisis in the U.S., call
+              or text 988.
+            </p>
+          </div>
+          <div class="fh-connect__form">
+            <div class="fh-form">
+              <label class="fh-field" for="fh-first-name">
+                First name
+                <input
+                  class="fh-input"
+                  type="text"
+                  id="fh-first-name"
+                  name="first-name"
+                  autocomplete="given-name"
+                  placeholder="Just your first name is fine"
+                />
+              </label>
+              <div class="fh-field-row">
+                <label class="fh-field" for="fh-contact-method">
+                  Preferred contact method
+                  <select class="fh-select" id="fh-contact-method" name="contact-method">
+                    <option>Phone call</option>
+                    <option>Text message</option>
+                    <option>Email</option>
+                  </select>
+                </label>
+                <label class="fh-field" for="fh-contact-detail">
+                  Phone or email
+                  <input
+                    class="fh-input"
+                    type="text"
+                    id="fh-contact-detail"
+                    name="contact-detail"
+                    autocomplete="email"
+                    placeholder="How can we reach you?"
+                  />
+                </label>
+              </div>
+              <label class="fh-field" for="fh-need-select">
+                What do you need help with?
+                <select class="fh-select" id="fh-need-select" name="need">
+                  <option value="work">Finding work</option>
+                  <option value="housing">Housing support</option>
+                  <option value="mentorship">Level Seven mentorship</option>
+                  <option value="recovery">Recovery or mental-health resources</option>
+                  <option value="community">Community resources</option>
+                  <option value="notsure" selected>Not sure yet</option>
+                </select>
+              </label>
+              <label class="fh-field" for="fh-message">
+                Message <span class="fh-field__optional">(optional)</span>
+                <textarea
+                  class="fh-textarea"
+                  id="fh-message"
+                  name="message"
+                  rows="4"
+                  placeholder="Share as much or as little as you like."
+                ></textarea>
+              </label>
+              <label class="fh-check" for="fh-consent">
+                <input type="checkbox" id="fh-consent" name="consent" />
+                <span>I agree to be contacted about my request. My information is only used to respond to me.</span>
+              </label>
+              <button type="button" class="fh-submit">Send message</button>
+            </div>
+            <div class="fh-thanks" hidden>
+              <p class="fh-thanks__title">Thank you &mdash; message received.</p>
+              <p class="fh-thanks__text">
+                This is a prototype, so nothing was actually sent. On the live site, a real person would read your
+                message and reach out within two business days.
+              </p>
+              <button type="button" class="fh-thanks__reset">Send another message</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__grid">
+          <div class="site-footer__about">
+            <p>Barcliff Impact Solutions</p>
+            <p class="site-footer__mission">
+              We connect people with jobs, housing, trusted services, and community resources &mdash; and walk
+              alongside them as they move forward.
+            </p>
+            <p class="site-footer__tagline">Level Seven &mdash; Live a Square Life.</p>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <div class="site-footer__links">
+              <a href="/services.html">Services</a>
+              <a href="/level-seven.html">Level Seven</a>
+              <a href="/partner-with-us.html">Partner With Us</a>
+              <a href="/find-help.html">Find Help</a>
+            </div>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <p class="site-footer__contact-note">Contact details and service area coming soon.</p>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p>&copy; 2026 Barcliff Impact Solutions</p>
+          <div class="site-footer__legal">
+            <a href="/">Privacy</a>
+            <a href="/">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
