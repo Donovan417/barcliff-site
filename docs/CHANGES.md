@@ -65,15 +65,26 @@ not its boundary — logged here for transparency.
 
 ## Judgment calls that need your decision
 
-1. **Form delivery (blocking before any production push).** Both flows now validate and
-   show their confirmation panels, whose existing copy honestly says *"This is a prototype,
-   so nothing was actually sent."* `FORM_ENDPOINT` in `src/main.js` is `null`. Before
-   production you must pick: (a) a form backend (Formspree/Basin/etc. — free tiers exist),
-   (b) a `mailto:` handoff once the org has a public email, or (c) keep the prototype copy.
-   With (a) or (b) the confirmation copy needs a matching edit (copy approval = yours).
-2. **New microcopy I added (needs your approval):** the single validation message
-   "Please add a way to reach you and check the consent box so we can respond." — used on
-   both forms. Reword freely; it's one string in `src/main.js`.
+1. **Form delivery — RESOLVED 2026-08-04.** Both forms now deliver via FormSubmit.co's
+   account-free AJAX endpoint to **barcliffassociates@gmail.com** (owner's decision).
+   Verified end-to-end with the test address donovansmith150@gmail.com: submission → 
+   FormSubmit → email received with all fields. The code treats FormSubmit's
+   `success:"false"` responses as failures (shows a retry error instead of a false
+   thank-you). Remaining owner steps:
+   - Click **ACTIVATE FORM** in the FormSubmit email now waiting in
+     barcliffassociates@gmail.com (use the newest email if several arrived — older
+     activation links die when a new one is issued).
+   - After the site is deployed, the first submission from the production domain triggers
+     one more activation email — same single click.
+   - Optional hardening: the activation email contains a "random-like string" alias;
+     swapping it into `FORM_ENDPOINT` hides the org address from the public JS bundle.
+   - Note: prototype-era confirmation copy ("nothing was actually sent") was replaced with
+     "A real person will read your message / A team member will follow up within two
+     business days" — needs your copy sign-off.
+2. **New microcopy I added (needs your approval):** the validation message
+   "Please add a way to reach you and check the consent box so we can respond." and the
+   failure message "Something went wrong and your message was not sent. Please try again
+   in a moment." — both in `src/main.js`.
 3. **Privacy & Accessibility pages** — recommend one simple combined page; I can draft it
    for your approval, or the links can be removed until ready.
 4. **Higher-res hero photo** — please export the community-meeting photo at ≥1800px wide

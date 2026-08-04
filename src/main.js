@@ -31,13 +31,17 @@ if (toggle && menu) {
 }
 
 /* Message flows (find-help + partner inquiry).
-   FORM_ENDPOINT is intentionally null: no delivery service exists yet, and the
-   confirmation copy on both pages states that nothing is sent. Before the
-   forms can deliver for real, set this to a form backend URL (e.g. Formspree)
-   — until then the flow only validates and shows the confirmation panel. */
-const FORM_ENDPOINT = null
+   Delivery via FormSubmit.co's AJAX endpoint (account-free). Activation is
+   per email + site: the inbox owner clicks the link in the activation email
+   FormSubmit sends on the first submission from a given site — once for
+   localhost (dev) and once more after the first submission from the
+   production domain. If several activation emails stack up, only the NEWEST
+   link is valid. After activating, the same email contains a "random-like
+   string" alias that can replace the address below to keep it out of the
+   public bundle. */
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/barcliffassociates@gmail.com'
 
-const wireMessageFlow = ({ fieldsSel, submitSel, thanksSel, resetSel, contactSel, consentSel, formSel, errorText }) => {
+const wireMessageFlow = ({ fieldsSel, submitSel, thanksSel, resetSel, contactSel, consentSel, formSel, subject, errorText }) => {
   const fields = document.querySelector(fieldsSel)
   const submit = document.querySelector(submitSel)
   const thanks = document.querySelector(thanksSel)
@@ -53,34 +57,56 @@ const wireMessageFlow = ({ fieldsSel, submitSel, thanksSel, resetSel, contactSel
     errorEl = null
   }
 
-  const showError = () => {
-    if (!errorEl) {
-      errorEl = document.createElement('p')
-      errorEl.className = 'form-error'
-      errorEl.setAttribute('role', 'alert')
-      errorEl.textContent = errorText
-      submit.before(errorEl)
-    }
+  const showError = (text) => {
+    clearError()
+    errorEl = document.createElement('p')
+    errorEl.className = 'form-error'
+    errorEl.setAttribute('role', 'alert')
+    errorEl.textContent = text
+    submit.before(errorEl)
   }
 
-  const trySubmit = (e) => {
+  const trySubmit = async (e) => {
     if (e) e.preventDefault()
     const missing = []
     if (contact && !contact.value.trim()) missing.push(contact)
     if (consent && !consent.checked) missing.push(consent)
     if (missing.length) {
-      showError()
+      showError(errorText)
       missing[0].focus()
       return
     }
     clearError()
     if (FORM_ENDPOINT) {
-      const data = new FormData()
-      fields.querySelectorAll('input, select, textarea').forEach((el) => {
-        if (el.type === 'checkbox') data.append(el.name, el.checked ? 'yes' : 'no')
-        else data.append(el.name, el.value)
-      })
-      fetch(FORM_ENDPOINT, { method: 'POST', body: data }).catch(() => {})
+      submit.disabled = true
+      const sending = submit.textContent
+      submit.textContent = 'Sending…'
+      try {
+        const data = new FormData()
+        fields.querySelectorAll('input, select, textarea').forEach((el) => {
+          if (!el.name) return
+          if (el.type === 'checkbox') data.append(el.name, el.checked ? 'yes' : 'no')
+          else data.append(el.name, el.value)
+        })
+        data.append('_subject', subject)
+        data.append('_template', 'table')
+        data.append('_captcha', 'false')
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        })
+        /* FormSubmit answers 200 with success:"false" (e.g. unactivated form),
+           so the body must be checked, not just the status */
+        const out = await res.json().catch(() => null)
+        if (!res.ok || !out || String(out.success) !== 'true') throw new Error('send failed')
+      } catch {
+        showError('Something went wrong and your message was not sent. Please try again in a moment.')
+        return
+      } finally {
+        submit.disabled = false
+        submit.textContent = sending
+      }
     }
     fields.hidden = true
     thanks.hidden = false
@@ -111,6 +137,7 @@ wireMessageFlow({
   resetSel: '.fh-thanks__reset',
   contactSel: '#fh-contact-detail',
   consentSel: '#fh-consent',
+  subject: 'Find Help message — barcliffimpactsolutions.com',
   errorText: 'Please add a way to reach you and check the consent box so we can respond.',
 })
 
@@ -122,5 +149,6 @@ wireMessageFlow({
   contactSel: '#pw-contact',
   consentSel: '#pw-consent',
   formSel: '.pw-form',
+  subject: 'Partnership inquiry — barcliffimpactsolutions.com',
   errorText: 'Please add a way to reach you and check the consent box so we can respond.',
 })
