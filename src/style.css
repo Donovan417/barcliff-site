@@ -1195,6 +1195,18 @@ img {
   max-width: 720px;
 }
 
+.story__video {
+  display: block;
+  width: min(100%, 420px);
+  height: auto;
+  margin-top: 18px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: var(--navy-deep);
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+}
+
 .story__coming h2 {
   margin: 16px 0 0;
   font-family: var(--font-serif);
