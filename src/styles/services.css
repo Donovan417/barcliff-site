@@ -344,3 +344,21 @@
     min-width: 0;
   }
 }
+
+/* Employment community event */
+.svc-event {
+  margin: 28px 0 0;
+}
+.svc-event__video {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  background: var(--navy);
+  border-radius: 6px;
+}
+.svc-event figcaption {
+  margin-top: 12px;
+  color: var(--ink-75);
+  font-size: 1rem;
+  line-height: 1.6;
+}
